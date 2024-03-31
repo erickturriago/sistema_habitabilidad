@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ser multado por estacionar en un lugar prohibido",
+        "descripcion": "La persona ha sido multada por estacionar su vehículo en un lugar donde está prohibido, lo que constituye una infracción de tráfico.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 2,
+        "nombre": "Recibir una advertencia por exceso de velocidad",
+        "descripcion": "La persona ha recibido una advertencia por exceder el límite de velocidad permitido, lo que constituye una infracción de tráfico.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 3,
+        "nombre": "Ser sancionado por no pagar impuestos a tiempo",
+        "descripcion": "La persona ha sido sancionada por no cumplir con el pago de impuestos en el plazo establecido por la ley.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Ser denunciado por hacer ruido en horas de la noche",
+        "descripcion": "La persona ha sido denunciada por generar ruidos molestos durante la noche, perturbando la tranquilidad del vecindario.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 5,
+        "nombre": "Recibir una queja por maltrato a mascotas",
+        "descripcion": "La persona ha recibido una queja por maltratar a sus mascotas, lo que constituye un acto de crueldad animal.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 6,
+        "nombre": "Ser notificado por realizar obras sin permiso en su propiedad",
+        "descripcion": "La persona ha sido notificada por llevar a cabo obras en su propiedad sin contar con los permisos correspondientes de las autoridades competentes.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 7,
+        "nombre": "Ser advertido por incumplimiento de normas de convivencia en la comunidad",
+        "descripcion": "La persona ha sido advertida por no cumplir con las normas de convivencia establecidas en la comunidad, como el mantenimiento de áreas comunes o el respeto a los horarios de descanso.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 8,
+        "nombre": "Recibir una amonestación por no respetar el horario de recolección de basura",
+        "descripcion": "La persona ha sido amonestada por no respetar el horario establecido para la recolección de basura, lo que puede generar problemas de higiene y salubridad en el vecindario.",
+        "nivelPeligrosidad": 1
+    },
+    {
+        "id": 9,
+        "nombre": "Ser denunciado por verter residuos en lugares no autorizados",
+        "descripcion": "La persona ha sido denunciada por verter residuos en lugares no autorizados, causando contaminación ambiental y deterioro del entorno.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 10,
+        "nombre": "Ser notificado por no mantener la higiene en su establecimiento comercial",
+        "descripcion": "La persona ha sido notificada por no mantener la higiene en su establecimiento comercial, lo que puede afectar la salud de los clientes y trabajadores.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 11,
+        "nombre": "Recibir una queja por ocupar espacios públicos de manera indebida",
+        "descripcion": "La persona ha recibido una queja por ocupar espacios públicos de manera indebida, obstaculizando el libre tránsito de peatones y vehículos.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 12,
+        "nombre": "Ser advertido por realizar actividades ruidosas durante el día",
+        "descripcion": "La persona ha sido advertida por realizar actividades ruidosas durante el día, perturbando la tranquilidad del entorno.",
+        "nivelPeligrosidad": 1
+    },
+    {
+        "id": 13,
+        "nombre": "Ser sancionado por no recoger los excrementos de su mascota en la vía pública",
+        "descripcion": "La persona ha sido sancionada por no recoger los excrementos de su mascota en la vía pública, lo que puede causar molestias e incomodidades a otras personas.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 14,
+        "nombre": "Recibir una multa por no llevar el cinturón de seguridad mientras conduce",
+        "descripcion": "La persona ha recibido una multa por no llevar puesto el cinturón de seguridad mientras conducía, poniendo en riesgo su seguridad y la de los demás ocupantes del vehículo.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 15,
+        "nombre": "Ser denunciado por no cumplir con el horario de cierre de su negocio",
+        "descripcion": "La persona ha sido denunciada por no cumplir con el horario de cierre de su negocio, perturbando la tranquilidad del vecindario.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 16,
+        "nombre": "Ser notificado por realizar quemas de basura en su propiedad",
+        "descripcion": "La persona ha sido notificada por realizar quemas de basura en su propiedad, lo que puede generar riesgos de incendio y contaminación del aire.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 17,
+        "nombre": "Recibir una advertencia por no respetar el límite de velocidad en zonas escolares",
+        "descripcion": "La persona ha recibido una advertencia por no respetar el límite de velocidad en zonas escolares, poniendo en riesgo la seguridad de los estudiantes y peatones.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 18,
+        "nombre": "Ser sancionado por incumplimiento de normativas de construcción",
+        "descripcion": "La persona ha sido sancionada por no cumplir con las normativas de construcción establecidas, lo que puede comprometer la seguridad estructural del edificio.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 19,
+        "nombre": "Ser denunciado por realizar pintadas en espacios públicos",
+        "descripcion": "La persona ha sido denunciada por realizar pintadas en espacios públicos, causando daños estéticos y deterioro del entorno urbano.",
+        "nivelPeligrosidad": 2
+    },
+    {
+        "id": 20,
+        "nombre": "Recibir una amonestación por verter residuos indevidos en la red de alcantarillado",
+        "descripcion": "La persona ha recibido una amonestación por verter residuos indevidos en la red de alcantarillado, lo que puede provocar contaminación del agua y daños al medio ambiente.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 21,
+        "nombre": "Robo menor",
+        "descripcion": "La persona ha sido condenada por cometer un robo menor, como el hurto de un objeto de poco valor.",
+        "nivelPeligrosidad": 4
+    },
+    {
+        "id": 22,
+        "nombre": "Robo mayor",
+        "descripcion": "La persona ha sido condenada por cometer un robo mayor, como el robo a una vivienda o establecimiento comercial.",
+        "nivelPeligrosidad": 7
+    },
+    {
+        "id": 23,
+        "nombre": "Agresión física",
+        "descripcion": "La persona ha sido condenada por agredir físicamente a otra persona, causándole lesiones graves.",
+        "nivelPeligrosidad": 8
+    },
+    {
+        "id": 24,
+        "nombre": "Problemas familiares",
+        "descripcion": "La persona ha enfrentado problemas familiares, como conflictos conyugales o disputas hereditarias.",
+        "nivelPeligrosidad": 3
+    },
+    {
+        "id": 25,
+        "nombre": "Homicidio",
+        "descripcion": "La persona ha matado a otra persona.",
+        "nivelPeligrosidad": 10
+    }
+]

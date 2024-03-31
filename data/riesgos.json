@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "nombre": "Incendios",
+    "descripcion": "Riesgo de fuego que puede propagarse rápidamente, poniendo en peligro la vida y la propiedad.",
+    "alcanceDelRiesgo": "Global",
+    "tipoEspacio": "Escalera"
+  },
+  {
+    "id": 2,
+    "nombre": "Cortocircuitos",
+    "descripcion": "Sobrecarga eléctrica o fallo en el cableado que puede provocar incendios o descargas eléctricas.",
+    "alcanceDelRiesgo": "Local"
+  },
+  {
+    "id": 3,
+    "nombre": "Fallos en el sistema de alarmas contra incendios",
+    "descripcion": "Mal funcionamiento o falta de mantenimiento de los sistemas de deteccion y alarma de incendios.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 4,
+    "nombre": "Mal estado de los extintores",
+    "descripcion": "Falta de equipos o equipo inoperable para utilizar los extintores, aumentando el riesgo de propagacion del fuego.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 5,
+    "nombre": "Fallos del sistema de deteccion de humo",
+    "descripcion": "Sistema de deteccion de humo ineficaz que puede retrasar la deteccion de incendios y la activacion de alarmas.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 6,
+    "nombre": "Fugas de gas",
+    "descripcion": "Escape de gas inflamable que puede causar explosiones o intoxicaciones.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 7,
+    "nombre": "Ventilaciones obstruidas",
+    "descripcion": "Ventilacion insuficiente que puede causar problemas de salud y aumentar el riesgo de intoxicacion por gases.",
+    "alcanceDelRiesgo": "Local"
+  },
+  {
+    "id": 8,
+    "nombre": "Inundaciones",
+    "descripcion": "Acumulacion de agua que puede causar daños estructurales y poner en peligro la seguridad de los residentes.",
+    "alcanceDelRiesgo": "Local"
+  },
+  {
+    "id": 9,
+    "nombre": "Fallos en la red electrica",
+    "descripcion": "Defectos en el cableado o equipo eléctrico que pueden causar incendios o descargas eléctricas.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 10,
+    "nombre": "No mantenimiento del ascensor",
+    "descripcion": "Mal funcionamiento del ascensor que puede resultar en accidentes o atrapamiento de personas.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 11,
+    "nombre": "Escaleras en mal estado o resbaladizas",
+    "descripcion": "Escaleras deterioradas o con superficies resbaladizas que aumentan el riesgo de caídas.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 12,
+    "nombre": "Iluminacion deficiente en áreas comunes",
+    "descripcion": "Falta de iluminacion adecuada que puede aumentar el riesgo de accidentes en pasillos y escaleras.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 13,
+    "nombre": "Intrusion de extraños en el edificio",
+    "descripcion": "Presencia no autorizada de personas extrañas que pueden representar un riesgo para la seguridad de los residentes.",
+    "alcanceDelRiesgo": "Global"
+  },
+  {
+    "id": 19,
+    "nombre": "Fallos en la cerradura de las puertas",
+    "descripcion": "Puertas que no cierran correctamente o que pueden ser fácilmente forzadas, comprometiendo la seguridad del edificio.",
+    "alcanceDelRiesgo": "Local"
+  },
+  {
+    "id": 20,
+    "nombre": "Mal estado del pasillo o piso mojado",
+    "descripcion": "Obstáculos o desorden en los pasillos que aumentan el riesgo de caídas para los residentes.",
+    "alcanceDelRiesgo": "local"
+  },
+  {
+    "id": 21,
+    "nombre": "Caidas desde balcones",
+    "descripcion": "Caídas desde alturas elevadas, como balcones, que pueden resultar en lesiones graves o fatales.",
+    "alcanceDelRiesgo": "Local"
+  },
+  {
+    "id": 24,
+    "nombre": "Falta de señalizacion de rutas de evacuacion",
+    "descripcion": "Ausencia de señalizacion clara que indique las salidas de emergencia, dificultando la evacuacion en caso de necesidad.",
+    "alcanceDelRiesgo": "Riesgos de Seguridad en la Circulacion"
+  },
+  {
+    "id": 25,
+    "nombre": "Obstrucciones en las salidas de emergencia",
+    "descripcion": "Bloqueo o impedimento de las salidas de emergencia que obstaculizan la evacuacion durante situaciones críticas.",
+    "alcanceDelRiesgo": "Riesgos de Seguridad en la Circulacion"
+  },
+  {
+    "id": 27,
+    "nombre": "Riesgo de electrocucion por cables expuestos",
+    "descripcion": "Contacto directo o cercano con cables eléctricos desprotegidos que pueden causar descargas eléctricas.",
+    "alcanceDelRiesgo": "Riesgos Eléctricos y de Seguridad"
+  },
+  {
+    "id": 31,
+    "nombre": "Presencia de plagas como cucarachas, roedores, etc.",
+    "descripcion": "Invasion de insectos o animales que pueden transmitir enfermedades o causar daños materiales.",
+    "alcanceDelRiesgo": "Riesgos Ambientales"
+  },
+  {
+    "id": 36,
+    "nombre": "Falta de mantenimiento de los sistemas de fontanería",
+    "descripcion": "Ausencia de mantenimiento preventivo en las instalaciones de fontanería que puede causar fugas o inundaciones.",
+    "alcanceDelRiesgo": "Riesgos Ambientales"
+  }
+]
