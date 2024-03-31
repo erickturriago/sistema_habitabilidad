@@ -1,48 +1,22 @@
 {
     "edificio": [
       {
-        "id": "0",
-        "nombre": "Entrada",
-        "espacios": [
-          {
-            "id": "10",
-            "nombre": "Escalera",
-            "tipo": "Escalera",
-            "coordenadas": {
-              "x": 0,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "id": "20",
-            "nombre": "Puerta Principal",
-            "tipo": "Puerta",
-            "coordenadas": {
-              "x": 1,
-              "y": 0,
-              "z": 0
-            }
-          },
-          {
-            "id": "30",
-            "nombre": "Vestíbulo",
-            "tipo": "Habitación",
-            "coordenadas": {
-              "x": 2,
-              "y": 0,
-              "z": 0
-            }
-          }
-        ]
-      },
-      {
         "id": "1",
         "nombre": "Primer Piso",
         "espacios": [
             {
                 "id": "11",
-                "nombre": "Pasillo",
+                "nombre": "Ascensor 1",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 0
+                }
+            },
+            {
+                "id": "12",
+                "nombre": "Pasillo 1",
                 "tipo": "Pasillo",
                 "coordenadas": {
                 "x": 3,
@@ -51,18 +25,19 @@
                 }
             },
             {
-                "id": "21",
-                "nombre": "Escalera",
+                "id": "13",
+                "nombre": "Escalera 1 a 2",
                 "tipo": "Escalera",
                 "coordenadas": {
                 "x": 6,
                 "y": 2,
-                "z": 0
+                "z": 0.5
                 }
             },
             {
-                "nombre": "101",
-                "tipo": "Habitación",
+                "id": "101",
+                "nombre": "Habitacion 101",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 1,
                 "y": 1,
@@ -70,8 +45,9 @@
                 }
             },
             {
-                "nombre": "102",
-                "tipo": "Habitación",
+                "id": "102",
+                "nombre": "Habitacion 102",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 2,
                 "y": 1,
@@ -79,8 +55,9 @@
                 }
             },
             {
-                "nombre": "103",
-                "tipo": "Habitación",
+                "id": "103",
+                "nombre": "Habitacion 103",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 3,
                 "y": 1,
@@ -88,8 +65,9 @@
                 }
             },
             {
-                "nombre": "104",
-                "tipo": "Habitación",
+                "id": "104",
+                "nombre": "Habitacion 104",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 4,
                 "y": 1,
@@ -97,8 +75,9 @@
                 }
             },
             {
-                "nombre": "105",
-                "tipo": "Habitación",
+                "id": "105",
+                "nombre": "Habitacion 105",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 5,
                 "y": 1,
@@ -106,8 +85,9 @@
                 }
             },
             {
-                "nombre": "106",
-                "tipo": "Habitación",
+                "id": "106",
+                "nombre": "Habitacion 106",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 5,
                 "y": 3,
@@ -115,8 +95,9 @@
                 }
             },
             {
-                "nombre": "107",
-                "tipo": "Habitación",
+                "id": "107",
+                "nombre": "Habitacion 107",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 4,
                 "y": 3,
@@ -124,8 +105,9 @@
                 }
             },
             {
-                "nombre": "108",
-                "tipo": "Habitación",
+                "id": "108",
+                "nombre": "Habitacion 108",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 3,
                 "y": 3,
@@ -133,8 +115,9 @@
                 }
             },
             {
-                "nombre": "109",
-                "tipo": "Habitación",
+                "id": "109",
+                "nombre": "Habitacion 109",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 2,
                 "y": 3,
@@ -142,241 +125,587 @@
                 }
             },
             {
-                "nombre": "110",
-                "tipo": "Habitación",
+                "id": "110",
+                "nombre": "Habitacion 110",
+                "tipo": "Habitacion",
                 "coordenadas": {
                 "x": 1,
                 "y": 3,
                 "z": 0
                 }
             }
-            ]
-        },
-        {
-            "nombre": "Primer Piso",
-            "espacios": [
-                {
-                    "nombre": "Pasillo",
-                    "tipo": "Pasillo",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 2,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "Escalera",
-                    "tipo": "Escalera",
-                    "coordenadas": {
-                    "x": 6,
-                    "y": 2,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "101",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "102",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 2,
-                    "y": 1,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "103",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 1,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "104",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 4,
-                    "y": 1,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "105",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 5,
-                    "y": 1,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "106",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 5,
-                    "y": 3,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "107",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 4,
-                    "y": 3,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "108",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 3,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "109",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 2,
-                    "y": 3,
-                    "z": 0
-                    }
-                },
-                {
-                    "nombre": "110",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 1,
-                    "y": 3,
-                    "z": 0
-                    }
+        ]
+    },
+    {
+        "id": "2",
+        "nombre": "Segundo Piso",
+        "espacios": [
+            {
+                "id": "21",
+                "nombre": "Ascensor 2",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 1
                 }
-            ]
-        },
-        {
-            "nombre": "Segundo Piso",
-            "espacios": [
-                {
-                    "nombre": "Pasillo",
-                    "tipo": "Pasillo",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 2,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "Escalera",
-                    "tipo": "Escalera",
-                    "coordenadas": {
-                    "x": 6,
-                    "y": 2,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "101",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "102",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 2,
-                    "y": 1,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "103",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 1,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "104",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 4,
-                    "y": 1,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "105",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 5,
-                    "y": 1,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "106",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 5,
-                    "y": 3,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "107",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 4,
-                    "y": 3,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "108",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 3,
-                    "y": 3,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "109",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 2,
-                    "y": 3,
-                    "z": 1
-                    }
-                },
-                {
-                    "nombre": "110",
-                    "tipo": "Habitación",
-                    "coordenadas": {
-                    "x": 1,
-                    "y": 3,
-                    "z": 1
-                    }
+            },
+            {
+                "id": "22",
+                "nombre": "Pasillo 2",
+                "tipo": "Pasillo",
+                "coordenadas": {
+                "x": 3,
+                "y": 2,
+                "z": 1
                 }
-            ]
-        }         
+            },
+            {
+                "id": "23",
+                "nombre": "Escalera 2 a 3",
+                "tipo": "Escalera",
+                "coordenadas": {
+                "x": 6,
+                "y": 2,
+                "z": 1.5
+                }
+            },
+            {
+                "id": "201",
+                "nombre": "Habitacion 201",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+                }
+            },
+            {
+                "id": "202",
+                "nombre": "Habitacion 202",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 1,
+                "z": 1
+                }
+            },
+            {
+                "id": "203",
+                "nombre": "Habitacion 203",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 1,
+                "z": 1
+                }
+            },
+            {
+                "id": "204",
+                "nombre": "Habitacion 204",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 1,
+                "z": 1
+                }
+            },
+            {
+                "id": "205",
+                "nombre": "Habitacion 205",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 1,
+                "z": 1
+                }
+            },
+            {
+                "id": "206",
+                "nombre": "Habitacion 206",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 3,
+                "z": 1
+                }
+            },
+            {
+                "id": "207",
+                "nombre": "Habitacion 207",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 3,
+                "z": 1
+                }
+            },
+            {
+                "id": "208",
+                "nombre": "Habitacion 208",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 3,
+                "z": 1
+                }
+            },
+            {
+                "id": "209",
+                "nombre": "Habitacion 209",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 3,
+                "z": 1
+                }
+            },
+            {
+                "id": "210",
+                "nombre": "Habitacion 210",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 3,
+                "z": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "nombre": "Tercer Piso",
+        "espacios": [
+            {
+                "id": "31",
+                "nombre": "Ascensor 3",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 2
+                }
+            },
+            {
+                "id": "32",
+                "nombre": "Pasillo 3",
+                "tipo": "Pasillo",
+                "coordenadas": {
+                "x": 3,
+                "y": 2,
+                "z": 2
+                }
+            },
+            {
+                "id": "33",
+                "nombre": "Escalera 3 a 4",
+                "tipo": "Escalera",
+                "coordenadas": {
+                "x": 6,
+                "y": 2,
+                "z": 2.5
+                }
+            },
+            {
+                "id": "301",
+                "nombre": "Habitacion 301",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 1,
+                "z": 2
+                }
+            },
+            {
+                "id": "302",
+                "nombre": "Habitacion 302",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 1,
+                "z": 2
+                }
+            },
+            {
+                "id": "303",
+                "nombre": "Habitacion 303",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 1,
+                "z": 2
+                }
+            },
+            {
+                "id": "304",
+                "nombre": "Habitacion 304",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 1,
+                "z": 2
+                }
+            },
+            {
+                "id": "305",
+                "nombre": "Habitacion 305",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 1,
+                "z": 2
+                }
+            },
+            {
+                "id": "306",
+                "nombre": "Habitacion 306",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 3,
+                "z": 2
+                }
+            },
+            {
+                "id": "307",
+                "nombre": "Habitacion 307",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 3,
+                "z": 2
+                }
+            },
+            {
+                "id": "308",
+                "nombre": "Habitacion 308",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 3,
+                "z": 2
+                }
+            },
+            {
+                "id": "309",
+                "nombre": "Habitacion 309",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 3,
+                "z": 2
+                }
+            },
+            {
+                "id": "310",
+                "nombre": "Habitacion 310",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 3,
+                "z": 2
+                }
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "nombre": "Cuarto Piso",
+        "espacios": [
+            {
+                "id": "41",
+                "nombre": "Ascensor 4",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 3
+                }
+            },
+            {
+                "id": "42",
+                "nombre": "Pasillo 4",
+                "tipo": "Pasillo",
+                "coordenadas": {
+                "x": 3,
+                "y": 2,
+                "z": 3
+                }
+            },
+            {
+                "id": "43",
+                "nombre": "Escalera 4 a 5",
+                "tipo": "Escalera",
+                "coordenadas": {
+                "x": 6,
+                "y": 2,
+                "z": 3.5
+                }
+            },
+            {
+                "id": "401",
+                "nombre": "Habitacion 401",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 1,
+                "z": 3
+                }
+            },
+            {
+                "id": "402",
+                "nombre": "Habitacion 402",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 1,
+                "z": 3
+                }
+            },
+            {
+                "id": "403",
+                "nombre": "Habitacion 403",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 1,
+                "z": 3
+                }
+            },
+            {
+                "id": "404",
+                "nombre": "Habitacion 404",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 1,
+                "z": 3
+                }
+            },
+            {
+                "id": "405",
+                "nombre": "Habitacion 405",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 1,
+                "z": 3
+                }
+            },
+            {
+                "id": "406",
+                "nombre": "Habitacion 406",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 3,
+                "z": 3
+                }
+            },
+            {
+                "id": "407",
+                "nombre": "Habitacion 407",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 3,
+                "z": 3
+                }
+            },
+            {
+                "id": "408",
+                "nombre": "Habitacion 408",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 3,
+                "z": 3
+                }
+            },
+            {
+                "id": "409",
+                "nombre": "Habitacion 409",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 3,
+                "z": 3
+                }
+            },
+            {
+                "id": "140",
+                "nombre": "Habitacion 410",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 3,
+                "z": 3
+                }
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "nombre": "Quinto Piso",
+        "espacios": [
+            {
+                "id": "51",
+                "nombre": "Ascensor 5",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 4
+                }
+            },
+            {
+                "id": "52",
+                "nombre": "Pasillo 5",
+                "tipo": "Pasillo",
+                "coordenadas": {
+                "x": 3,
+                "y": 2,
+                "z": 4
+                }
+            },
+            {
+                "id": "53",
+                "nombre": "Escalera 5 a 6",
+                "tipo": "Escalera",
+                "coordenadas": {
+                "x": 6,
+                "y": 2,
+                "z": 4.5
+                }
+            },
+            {
+                "id": "501",
+                "nombre": "Habitacion 501",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 1,
+                "z": 4
+                }
+            },
+            {
+                "id": "502",
+                "nombre": "Habitacion 502",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 1,
+                "z": 4
+                }
+            },
+            {
+                "id": "503",
+                "nombre": "Habitacion 503",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 1,
+                "z": 4
+                }
+            },
+            {
+                "id": "504",
+                "nombre": "Habitacion 504",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 1,
+                "z": 4
+                }
+            },
+            {
+                "id": "505",
+                "nombre": "Habitacion 505",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 1,
+                "z": 4
+                }
+            },
+            {
+                "id": "506",
+                "nombre": "Habitacion 506",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 5,
+                "y": 3,
+                "z": 4
+                }
+            },
+            {
+                "id": "507",
+                "nombre": "Habitacion 507",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 4,
+                "y": 3,
+                "z": 4
+                }
+            },
+            {
+                "id": "508",
+                "nombre": "Habitacion 508",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 3,
+                "y": 3,
+                "z": 4
+                }
+            },
+            {
+                "id": "509",
+                "nombre": "Habitacion 509",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 2,
+                "y": 3,
+                "z": 4
+                }
+            },
+            {
+                "id": "510",
+                "nombre": "Habitacion 510",
+                "tipo": "Habitacion",
+                "coordenadas": {
+                "x": 1,
+                "y": 3,
+                "z": 4
+                }
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "nombre": "Terraza",
+        "espacios": [
+            {
+                "id": "61",
+                "nombre": "Ascensor 6",
+                "tipo": "Ascensor",
+                "coordenadas": {
+                "x": 0,
+                "y": 2,
+                "z": 5
+                }
+            },
+            {
+                "id": "61",
+                "nombre": "Terraza",
+                "tipo": "Terraza",
+                "coordenadas": {
+                "x": 3,
+                "y": 2,
+                "z": 5
+                }
+            }
+        ]
+    }
+
     ] 
 }
