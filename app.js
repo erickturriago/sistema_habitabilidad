@@ -3,17 +3,20 @@ const btnRiesgos = document.querySelector('.btnRiesgos')
 const btnPersonas = document.querySelector('.btnPersonas')
 const btnAntecedentes = document.querySelector('.btnAntecedentes')
 const btnRecomendaciones = document.querySelector('.btnRecomendaciones')
-const btnShowGrafo = document.querySelector('.btnShowGrafo')
 
+const btnShowGrafo = document.querySelector('.btnShowGrafo')
 const divGrafo = document.querySelector('.divGrafo');
+const closeGraph = document.querySelector('.closeGraph')
 
 const headTable = document.querySelector('.headTable')
 const bodyTable = document.querySelector('.bodyTable')
 
+
 import {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones} from "./main"
+import {animate,setAnimate} from './grafo'
 
 //Grafo inicia oculto
-divGrafo.style.display = 'none'
+// divGrafo.style.display = 'none'
 
 btnEspacios.addEventListener(('click'),()=>{
     headTable.innerHTML=''
@@ -128,3 +131,20 @@ btnAntecedentes.addEventListener(('click'),()=>{
 btnRecomendaciones.addEventListener(('click'),()=>{
     console.log("click btnRecomendaciones")
 })
+btnShowGrafo.addEventListener(('click'),()=>{
+    console.log("Mostrando")
+    divGrafo.removeAttribute('hidden')
+    // setTimeout(() => {
+    //     animate()
+    // }, 1000);
+    setAnimate(true)
+    animate()
+})
+closeGraph.addEventListener('click',()=>{
+    divGrafo.setAttribute('hidden',true)
+    setAnimate(false)
+})
+
+
+btnEspacios.click()
+// animate()
