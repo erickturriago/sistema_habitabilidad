@@ -1,11 +1,19 @@
 const btnEspacios = document.querySelector('.btnEspacios')
 const btnRiesgos = document.querySelector('.btnRiesgos')
+const btnPersonas = document.querySelector('.btnPersonas')
+const btnAntecedentes = document.querySelector('.btnAntecedentes')
 const btnRecomendaciones = document.querySelector('.btnRecomendaciones')
+const btnShowGrafo = document.querySelector('.btnShowGrafo')
+
+const divGrafo = document.querySelector('.divGrafo');
 
 const headTable = document.querySelector('.headTable')
 const bodyTable = document.querySelector('.bodyTable')
 
-import { listaEspacios,listaRiesgos} from "./main"
+import {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones} from "./main"
+
+//Grafo inicia oculto
+divGrafo.style.display = 'none'
 
 btnEspacios.addEventListener(('click'),()=>{
     headTable.innerHTML=''
@@ -13,6 +21,7 @@ btnEspacios.addEventListener(('click'),()=>{
     const headerEspacios = `
         <tr>
             <th>Id</th>
+            <th>Nombre</th>
             <th>Tipo Esp</th>
             <th>Actividad</th>
             <th># Habitantes</th>
@@ -20,6 +29,7 @@ btnEspacios.addEventListener(('click'),()=>{
             <th>Nivel Riesgo</th>
             <th>Riesgos</th>
             <th>Habitantes</th>
+            <th>Vecinos</th>
         </tr>
     `
     headTable.innerHTML = headerEspacios
@@ -27,6 +37,7 @@ btnEspacios.addEventListener(('click'),()=>{
         const fila = `
             <tr>
                 <td>${espacio.id}</td>
+                <td>${espacio.nombre}</td>
                 <td>${espacio.tipo}</td>
                 <td>${espacio.actividad}</td>
                 <td>${espacio.cantidadPersonas}</td>
@@ -34,6 +45,7 @@ btnEspacios.addEventListener(('click'),()=>{
                 <td>${espacio.nivelRiesgo}</td>
                 <td>${espacio.listaRiesgos.map((riesgo)=>{return riesgo.id})}</td>
                 <td>${espacio.listaPersonas.map((persona)=>{return persona.id})}</td>
+                <td>${espacio.listaVecinos}</td>
             </tr>
         `
         bodyTable.innerHTML+=fila
@@ -42,7 +54,7 @@ btnEspacios.addEventListener(('click'),()=>{
 btnRiesgos.addEventListener(('click'),()=>{
     headTable.innerHTML=''
     bodyTable.innerHTML=''
-    const headerEspacios = `
+    const headerRiegos = `
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -51,7 +63,7 @@ btnRiesgos.addEventListener(('click'),()=>{
             <th>Tipo Espacio</th>
         </tr>
     `
-    headTable.innerHTML = headerEspacios
+    headTable.innerHTML = headerRiegos
     listaRiesgos.forEach((riesgo)=>{
         const fila = `
             <tr>
@@ -60,6 +72,54 @@ btnRiesgos.addEventListener(('click'),()=>{
                 <td>${riesgo.descripcion}</td>
                 <td>${riesgo.alcanceDelRiesgo}</td>
                 <td>${riesgo.tipoEspacio}</td>
+            </tr>
+        `
+        bodyTable.innerHTML+=fila
+    })
+})
+btnPersonas.addEventListener(('click'),()=>{
+    headTable.innerHTML=''
+    bodyTable.innerHTML=''
+    const headerPersonas = `
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Antecedentes</th>
+        </tr>
+    `
+    headTable.innerHTML = headerPersonas
+    listaPersonas.forEach((persona)=>{
+        const fila = `
+            <tr>
+                <td>${persona.id}</td>
+                <td>${persona.nombre}</td>
+                <td>${persona.edad}</td>
+                <td>${persona.listaAntecedentes.map((antecedente)=>{return antecedente.id})}</td>
+            </tr>
+        `
+        bodyTable.innerHTML+=fila
+    })
+})
+btnAntecedentes.addEventListener(('click'),()=>{
+    headTable.innerHTML=''
+    bodyTable.innerHTML=''
+    const headerAntecedentes = `
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Peligrosidad</th>
+        </tr>
+    `
+    headTable.innerHTML = headerAntecedentes
+    listaAntecedentes.forEach((antecedente)=>{
+        const fila = `
+            <tr>
+                <td>${antecedente.id}</td>
+                <td>${antecedente.nombre}</td>
+                <td>${antecedente.descripcion}</td>
+                <td>${antecedente.nivelPeligrosidad}</td>
             </tr>
         `
         bodyTable.innerHTML+=fila

@@ -6,15 +6,15 @@ import Persona from './clases/Persona'
 import Antecedente from './clases/Antecedente';
 import Espacio from './clases/Espacio';
 
+//Creación de listas de objetos
 
 //Creacion de personas
 import personasData from './data/personas.json'
 const listaPersonas = [] //Arreglo de elementos de tipo Persona.
 personasData.forEach((personaData)=>{
-  const persona = new Persona(personaData.id,personaData.nombre,personaData.edad)
+  const persona = new Persona(personaData.id,personaData.nombre,personaData.edad,[])
   listaPersonas.push(persona)
 })
-// console.log(listaPersonas)
 
 // Creacion antecedentes
 import antecedentesData from './data/antecedentes.json'
@@ -23,7 +23,6 @@ antecedentesData.forEach((antecedenteData)=>{
   const antecedente = new Antecedente(antecedenteData.id,antecedenteData.nombre,antecedenteData.descripcion,antecedenteData.nivelPeligrosidad)
   listaAntecedentes.push(antecedente)
 })
-// console.log(listaAntecedentes)
 
 
 //Creacion riesgos
@@ -43,10 +42,27 @@ espaciosData.edificio.forEach((piso)=>{
   piso.espacios.forEach((espacio)=>{
     // const espacio = new Espacio(espacio)
     // id,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas
-    const espacioMemoria = new Espacio(espacio.id,espacio.tipo,"Vivienda",0,200,0,[],[])
+    const espacioMemoria = new Espacio(espacio.id,espacio.nombre,espacio.tipo,"Vivienda",0,200,0,[],[],espacio.vecinos)
     listaEspacios.push(espacioMemoria)
   })
 })
+
+const listaRecomendaciones = []
+
+//Cargue de objetos entre listas
+
+//Agregar antecedentes random a personas
+let cantidadAntecedentesRandom = 100
+for(let i=0;i<cantidadAntecedentesRandom;i++){
+  let antecedenteRandom = listaAntecedentes[parseInt(Math.random()*listaAntecedentes.length)]
+  let personaRandom;
+  do{
+    personaRandom=listaPersonas[parseInt(Math.random()*listaPersonas.length)]
+  }while(personaRandom.listaAntecedentes.includes(antecedenteRandom))
+  // let espacioRandom = listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+  personaRandom.listaAntecedentes.push(antecedenteRandom)
+}
+// console.log(listaPersonas.filter((persona)=>persona.listaAntecedentes.length>1))
 
 //Agregar habitantes a cada Espacio
 listaPersonas.forEach((persona)=>{
@@ -58,10 +74,7 @@ listaPersonas.forEach((persona)=>{
   espacioRandom.cantidadPersonas++;
 })
 
-// console.log(listaEspacios)
-
-
-//Agregar riesgos random
+//Agregar riesgos random a cada espacio
 let cantidadRiesgosAgregar=30
 for(let i=0;i<cantidadRiesgosAgregar;i++){
   let riesgoRandom = listaRiesgos[parseInt(Math.random()*listaRiesgos.length)]
@@ -74,9 +87,7 @@ for(let i=0;i<cantidadRiesgosAgregar;i++){
 }
 
 
-console.log(listaEspacios.filter((espacio)=>espacio.listaRiesgos.length>0))
-
-
+//Trabajo con grafo 3D
 
 // return 0;
 
@@ -84,9 +95,11 @@ console.log(listaEspacios.filter((espacio)=>espacio.listaRiesgos.length>0))
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+const containerGrafo = document.querySelector('.grafo')
+renderer.setSize(containerGrafo.offsetWidth, containerGrafo.offsetHeight);
+console.log(containerGrafo.offsetWidth)
 renderer.setPixelRatio(window.devicePixelRatio)
-document.body.appendChild(renderer.domElement);
+document.querySelector('.grafo').appendChild(renderer.domElement);
 
 // Crear nodos del grafo
 const nodes = [];
@@ -228,4 +241,4 @@ function animate() {
 // animate();
 
 
-export {listaEspacios,listaRiesgos}
+export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones}

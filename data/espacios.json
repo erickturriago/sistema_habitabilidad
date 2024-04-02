@@ -8,7 +8,7 @@
             {
                 "id": "10",
                 "nombre": "Entrada",
-                "tipo": "Habitacion",
+                "tipo": "Entrada",
                 "coordenadas": {
                 "x": 0,
                 "y": 3,
