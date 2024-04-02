@@ -1,5 +1,6 @@
 export default class Espacio{
-    constructor(tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas){
+    constructor(id,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas){
+        this.id=id;
         this.tipo=tipo;
         this.actividad=actividad;
         this.cantidadPersonas=cantidadPersonas;
@@ -8,7 +9,13 @@ export default class Espacio{
         this.listaRiesgos=listaRiesgos;
         this.listaPersonas=listaPersonas;
     };
+    getId() {
+        return this.id;
+    }
 
+    setId(id) {
+        this.id = id;
+    }
 
     // Getter y setter para tipo
     getTipo() {

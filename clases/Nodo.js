@@ -1,11 +1,14 @@
 export default class Nodo{
     constructor(){
+        this.id=undefined
         this.nombre=undefined
         this.vecinos=[]
+        this.vecinosNodo=[]
         this.posX=undefined
         this.posY=undefined
         this.posZ=undefined
         this.nodoThree=undefined
+        this.tipo=undefined
     };
     // Getter y setter para nombre
     getNombre() {

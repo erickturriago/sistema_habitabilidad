@@ -4,11 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import Riesgo from './clases/Riesgo'
 import Persona from './clases/Persona'
 import Antecedente from './clases/Antecedente';
-import Espacios from './data/espacios.json'
-
-// Riesgos locativos: Puertas dañadas o defectuosas, Pisos dañados o resbaladizos, Techos dañados o con filtraciones, Escaleras desgastadas o en mal estado, Instalaciones eléctricas inseguras, Sistemas de fontanería defectuosos, Presencia de plagas
-
-// Riesgos sociales: Barrio peligroso o inseguro, Vecinos con antecedentes criminales, Falta de comunidad cohesionada, Presencia de pandillas o grupos delictivos, Acceso limitado a servicios y recursos comunitarios
+import Espacio from './clases/Espacio';
 
 
 //Creacion de personas
@@ -34,14 +30,51 @@ antecedentesData.forEach((antecedenteData)=>{
 import riesgosData from './data/riesgos.json'
 const listaRiesgos = []
 riesgosData.forEach((riesgoData)=>{
-  // const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.tipoDeRiesgo)
+  const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.alcanceDelRiesgo,riesgoData.tipoEspacio)
+  listaRiesgos.push(riesgo)
 })
-// console.log(listaAntecedentes)
+
+//Creacion espacios
+import espaciosData from './data/espacios.json'
+import Espacios from './data/espacios.json'
+
+const listaEspacios = []
+espaciosData.edificio.forEach((piso)=>{
+  piso.espacios.forEach((espacio)=>{
+    // const espacio = new Espacio(espacio)
+    // id,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas
+    const espacioMemoria = new Espacio(espacio.id,espacio.tipo,"Vivienda",0,200,0,[],[])
+    listaEspacios.push(espacioMemoria)
+  })
+})
+
+//Agregar habitantes a cada Espacio
+listaPersonas.forEach((persona)=>{
+  let espacioRandom;
+  do{
+    espacioRandom=listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+  }while(espacioRandom.cantidadPersonas>=5 || espacioRandom.listaPersonas.includes(persona) || espacioRandom.tipo!=='Habitacion')
+  espacioRandom.listaPersonas.push(persona)
+  espacioRandom.cantidadPersonas++;
+})
+
+// console.log(listaEspacios)
 
 
+//Agregar riesgos random
+let cantidadRiesgosAgregar=30
+for(let i=0;i<cantidadRiesgosAgregar;i++){
+  let riesgoRandom = listaRiesgos[parseInt(Math.random()*listaRiesgos.length)]
+  let espacioRandom;
+  do{
+    espacioRandom=listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+  }while(riesgoRandom.tipoEspacio!==espacioRandom.tipo || espacioRandom.listaRiesgos.includes(riesgoRandom))
+  // let espacioRandom = listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+  espacioRandom.listaRiesgos.push(riesgoRandom)
+}
 
-// console.log(Espacios.edificio)
 
+console.log(listaEspacios.filter((espacio)=>espacio.listaRiesgos.length>0))
 
 
 
@@ -58,6 +91,7 @@ document.body.appendChild(renderer.domElement);
 // Crear nodos del grafo
 const nodes = [];
 const edificio = []
+const nodos = []
 const alturaEdificio = 10
 const nodeGeometry = new THREE.SphereGeometry(0.4, 20, 20);
 const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
@@ -65,26 +99,8 @@ const numNodes = 20;
 const radius = 5;
 
 
+
 //Crear edificio
-// for(let k=0;k<alturaEdificio;k++){
-//   const array = new Array(10);
-//   for(let i=0;i<array.length;i++){
-//     const array2=new Array(10)
-//     for(let j=0;j<array2.length;j++){
-//       const nodo = new Nodo()
-//       nodo.posX=j
-//       nodo.posY=i
-//       nodo.posZ=k
-
-//       nodo.nombre = `Nodo piso ${nodo.posZ} ${nodo.posY} ${nodo.posX}`
-
-//       array2[j]=nodo
-//     }
-//     array[i]=array2
-//   }
-//   edificio.push(array);
-// }
-
 for(let k=0;k<Espacios.edificio.length;k++){
   const piso = Espacios.edificio[k]
   const arrayPiso = []
@@ -92,82 +108,70 @@ for(let k=0;k<Espacios.edificio.length;k++){
     const espacio=piso.espacios[i]
     // console.log(espacio)
     const nodo = new Nodo()
+    nodo.id=espacio.id
     nodo.posX=espacio.coordenadas.x
     nodo.posY=espacio.coordenadas.y
     nodo.posZ=espacio.coordenadas.z
+    nodo.vecinos=espacio.vecinos
     nodo.nombre = espacio.nombre
+    nodo.tipo=espacio.tipo
+    nodos.push(nodo)
     arrayPiso.push(nodo)
   }
   edificio.push(arrayPiso);
 }
 
-// console.log(edificio)
 
-
-
-// Agregar vecinos a cada nodo
-// for(let k=0;k<alturaEdificio;k++){
-//   const piso =edificio[k]
-//   for(let i=0;i<piso.length;i++){
-//     for(let j=0;j<piso[i].length;j++){
-//         const nodo = edificio[k][i][j]
-
-//         //Agregar vecino de arriba y abajo
-//         if(k>0 && k<alturaEdificio-1){
-//           nodo.vecinos.push(edificio[k-1][i][j])
-//           nodo.vecinos.push(edificio[k+1][i][j])
-//         }
-//         else if(k==0 && k<alturaEdificio-1){
-//           nodo.vecinos.push(edificio[k+1][i][j])
-//         }
-//         else if(k==alturaEdificio-1 && alturaEdificio>0){
-//           nodo.vecinos.push(edificio[k-1][i][j])
-//         }
-
-//         if(i>0 && i<piso.length-1){
-//           nodo.vecinos.push(edificio[k][i-1][j])
-//           nodo.vecinos.push(edificio[k][i+1][j])
-//         }
-
-//         if(j>0 && j<piso[i].length-1){
-//           nodo.vecinos.push(edificio[k][i][j-1])
-//           nodo.vecinos.push(edificio[k][i][j+1])
-//         }
-//     }
-//   }
-// }
-
-// Agregar vecinos a cada nodo
-edificio.forEach((piso)=>{
-  piso.forEach((espacio)=>{
-    console.log(espacio)
+//Agregar vecinos de tipo nodo
+nodos.forEach((nodo)=>{
+  nodo.vecinos.forEach((vecino)=>{
+    vecino = nodos.filter((nodo)=>nodo.id==vecino)[0];
+    nodo.vecinosNodo.push(vecino)
   })
 })
 
-// console.log(edificio)
 
 //Agregar nodos al grafo
-edificio.forEach((piso)=>{
-  // console.log(piso)
-  for(let i=0;i<piso.length;i++){
-    // console.log(piso[i])
-    const node = new THREE.Mesh(nodeGeometry, nodeMaterial);  
-    const x = piso[i].posX*4;
-    const y = piso[i].posY*4;
-    const z = piso[i].posZ*5;
+nodos.forEach((nodo)=>{
 
-    node.position.set(x, y, z);
-    // console.log(node.position)
-    scene.add(node);
-    nodes.push(node);
+  let material;
 
-    piso[i].nodoThree=node;
-    // console.log(piso[i][j].nombre)
+  if(nodo.tipo=="Habitacion"){
+    material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
   }
-})
-console.log("Prueba")
+  else if(nodo.tipo=="Ascensor"){
+    material=new THREE.MeshBasicMaterial({ color: 0x008000 }); //Verde
+  }
+  else if(nodo.tipo=="Pasillo"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFF0080 }); //Rosado
+  }
+  else if(nodo.tipo=="Escalera"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFFD300 }); //Amarillo
+  }
+  else if(nodo.tipo=="Terraza"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFC4B08 }); //Naranja
+  }
+  else{
+    material=new THREE.MeshBasicMaterial({ color: 0xFFFFFF }); //Blanco
+  }
 
-// exit
+  // console.log(nodeMaterial)
+
+  // const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+  const node = new THREE.Mesh(nodeGeometry,material)
+  const x = nodo.posX*4;
+  const y = nodo.posY*4;
+  const z = nodo.posZ*5;
+
+
+  node.position.set(x, y, z);
+  scene.add(node);
+  nodes.push(node);
+
+  nodo.nodoThree=node;
+})
+
+
 
 // Agregar aristas
 const edgeMaterial = new THREE.LineBasicMaterial({ 
@@ -176,18 +180,16 @@ const edgeMaterial = new THREE.LineBasicMaterial({
   linecap: 'round', //ignored by WebGLRenderer
 	linejoin:  'round' //ignored by WebGLRenderer
 });
-edificio.forEach((piso)=>{
-  for(let i=0;i<piso.length;i++){
-    for(let j=0;j<piso[i].length;j++){
-        const nodo = piso[i][j]
-        for (let l=0;l<nodo.vecinos.length;l++){
-          const vecino = nodo.vecinos[l]
-          const edgeGeometry = new THREE.BufferGeometry().setFromPoints([nodo.nodoThree.position, vecino.nodoThree.position]);
-          const edge = new THREE.Line(edgeGeometry, edgeMaterial);
-          scene.add(edge);
-        }
-    }
-  }
+nodos.forEach((nodo)=>{
+  // console.log("------------------------------------------------")
+  // console.log(nodo.nombre+" Id: "+nodo.id)
+  nodo.vecinosNodo.forEach((vecino)=>{
+    // console.log(vecino.nombre)
+    // console.log(vecino.nodoThree)
+    const edgeGeometry = new THREE.BufferGeometry().setFromPoints([nodo.nodoThree.position, vecino.nodoThree.position]);
+    const edge = new THREE.Line(edgeGeometry, edgeMaterial);
+    scene.add(edge);
+  })
 })
 
 // Posicionar la cámara
@@ -222,4 +224,8 @@ function animate() {
   controls.update();
 }
 
-animate();
+
+// animate();
+
+
+export {listaEspacios,listaRiesgos}
