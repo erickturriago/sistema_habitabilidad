@@ -2,7 +2,7 @@ export default class Riesgo{
     constructor(nombre,descripcion,listaTipoRiesgos){
         this.nombre=nombre;
         this.descripcion=descripcion;
-        this.tipoDeRiesgo=tipoDeRiesgo;
+        //this.tipoDeRiesgo=tipoDeRiesgo;
     }
     // Getter y setter para nombre
     getNombre() {
