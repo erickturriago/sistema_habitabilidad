@@ -41,7 +41,6 @@ riesgosData.forEach((riesgoData)=>{
 
 
 
-exit
 
 // return 0;
 
