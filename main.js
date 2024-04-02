@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import Riesgo from './clases/Riesgo'
 import Persona from './clases/Persona'
 import Antecedente from './clases/Antecedente';
+import Espacios from './data/espacios.json'
 
 // Riesgos locativos: Puertas dañadas o defectuosas, Pisos dañados o resbaladizos, Techos dañados o con filtraciones, Escaleras desgastadas o en mal estado, Instalaciones eléctricas inseguras, Sistemas de fontanería defectuosos, Presencia de plagas
 
@@ -33,15 +34,16 @@ antecedentesData.forEach((antecedenteData)=>{
 import riesgosData from './data/riesgos.json'
 const listaRiesgos = []
 riesgosData.forEach((riesgoData)=>{
-  const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.tipoDeRiesgo)
+  // const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.tipoDeRiesgo)
 })
 // console.log(listaAntecedentes)
 
 
 
+// console.log(Espacios.edificio)
 
 
-exit
+
 
 // return 0;
 
@@ -64,76 +66,108 @@ const radius = 5;
 
 
 //Crear edificio
-for(let k=0;k<alturaEdificio;k++){
-  const array = new Array(10);
-  for(let i=0;i<array.length;i++){
-    const array2=new Array(10)
-    for(let j=0;j<array2.length;j++){
-      const nodo = new Nodo()
-      nodo.posX=j
-      nodo.posY=i
-      nodo.posZ=k
+// for(let k=0;k<alturaEdificio;k++){
+//   const array = new Array(10);
+//   for(let i=0;i<array.length;i++){
+//     const array2=new Array(10)
+//     for(let j=0;j<array2.length;j++){
+//       const nodo = new Nodo()
+//       nodo.posX=j
+//       nodo.posY=i
+//       nodo.posZ=k
 
-      nodo.nombre = `Nodo piso ${nodo.posZ} ${nodo.posY} ${nodo.posX}`
+//       nodo.nombre = `Nodo piso ${nodo.posZ} ${nodo.posY} ${nodo.posX}`
 
-      array2[j]=nodo
-    }
-    array[i]=array2
+//       array2[j]=nodo
+//     }
+//     array[i]=array2
+//   }
+//   edificio.push(array);
+// }
+
+for(let k=0;k<Espacios.edificio.length;k++){
+  const piso = Espacios.edificio[k]
+  const arrayPiso = []
+  for(let i=0;i<piso.espacios.length;i++){
+    const espacio=piso.espacios[i]
+    // console.log(espacio)
+    const nodo = new Nodo()
+    nodo.posX=espacio.coordenadas.x
+    nodo.posY=espacio.coordenadas.y
+    nodo.posZ=espacio.coordenadas.z
+    nodo.nombre = espacio.nombre
+    arrayPiso.push(nodo)
   }
-  edificio.push(array);
+  edificio.push(arrayPiso);
 }
+
+// console.log(edificio)
+
+
 
 // Agregar vecinos a cada nodo
-for(let k=0;k<alturaEdificio;k++){
-  const piso =edificio[k]
-  for(let i=0;i<piso.length;i++){
-    for(let j=0;j<piso[i].length;j++){
-        const nodo = edificio[k][i][j]
+// for(let k=0;k<alturaEdificio;k++){
+//   const piso =edificio[k]
+//   for(let i=0;i<piso.length;i++){
+//     for(let j=0;j<piso[i].length;j++){
+//         const nodo = edificio[k][i][j]
 
-        //Agregar vecino de arriba y abajo
-        if(k>0 && k<alturaEdificio-1){
-          nodo.vecinos.push(edificio[k-1][i][j])
-          nodo.vecinos.push(edificio[k+1][i][j])
-        }
-        else if(k==0 && k<alturaEdificio-1){
-          nodo.vecinos.push(edificio[k+1][i][j])
-        }
-        else if(k==alturaEdificio-1 && alturaEdificio>0){
-          nodo.vecinos.push(edificio[k-1][i][j])
-        }
+//         //Agregar vecino de arriba y abajo
+//         if(k>0 && k<alturaEdificio-1){
+//           nodo.vecinos.push(edificio[k-1][i][j])
+//           nodo.vecinos.push(edificio[k+1][i][j])
+//         }
+//         else if(k==0 && k<alturaEdificio-1){
+//           nodo.vecinos.push(edificio[k+1][i][j])
+//         }
+//         else if(k==alturaEdificio-1 && alturaEdificio>0){
+//           nodo.vecinos.push(edificio[k-1][i][j])
+//         }
 
-        if(i>0 && i<piso.length-1){
-          nodo.vecinos.push(edificio[k][i-1][j])
-          nodo.vecinos.push(edificio[k][i+1][j])
-        }
+//         if(i>0 && i<piso.length-1){
+//           nodo.vecinos.push(edificio[k][i-1][j])
+//           nodo.vecinos.push(edificio[k][i+1][j])
+//         }
 
-        if(j>0 && j<piso[i].length-1){
-          nodo.vecinos.push(edificio[k][i][j-1])
-          nodo.vecinos.push(edificio[k][i][j+1])
-        }
-    }
-  }
-}
+//         if(j>0 && j<piso[i].length-1){
+//           nodo.vecinos.push(edificio[k][i][j-1])
+//           nodo.vecinos.push(edificio[k][i][j+1])
+//         }
+//     }
+//   }
+// }
+
+// Agregar vecinos a cada nodo
+edificio.forEach((piso)=>{
+  piso.forEach((espacio)=>{
+    console.log(espacio)
+  })
+})
+
+// console.log(edificio)
 
 //Agregar nodos al grafo
 edificio.forEach((piso)=>{
+  // console.log(piso)
   for(let i=0;i<piso.length;i++){
-    for(let j=0;j<piso[i].length;j++){
-          const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+    // console.log(piso[i])
+    const node = new THREE.Mesh(nodeGeometry, nodeMaterial);  
+    const x = piso[i].posX*4;
+    const y = piso[i].posY*4;
+    const z = piso[i].posZ*5;
 
-          const x = piso[i][j].posX*4;
-          const y = piso[i][j].posY*4;
-          const z = piso[i][j].posZ*5;
+    node.position.set(x, y, z);
+    // console.log(node.position)
+    scene.add(node);
+    nodes.push(node);
 
-          node.position.set(x, y, z);
-          scene.add(node);
-          nodes.push(node);
-
-          piso[i][j].nodoThree=node;
-          // console.log(piso[i][j].nombre)
-    }
+    piso[i].nodoThree=node;
+    // console.log(piso[i][j].nombre)
   }
 })
+console.log("Prueba")
+
+// exit
 
 // Agregar aristas
 const edgeMaterial = new THREE.LineBasicMaterial({ 
@@ -146,13 +180,11 @@ edificio.forEach((piso)=>{
   for(let i=0;i<piso.length;i++){
     for(let j=0;j<piso[i].length;j++){
         const nodo = piso[i][j]
-
         for (let l=0;l<nodo.vecinos.length;l++){
           const vecino = nodo.vecinos[l]
           const edgeGeometry = new THREE.BufferGeometry().setFromPoints([nodo.nodoThree.position, vecino.nodoThree.position]);
           const edge = new THREE.Line(edgeGeometry, edgeMaterial);
           scene.add(edge);
-          // console.log("Vecino: "+vecino.nombre)
         }
     }
   }
