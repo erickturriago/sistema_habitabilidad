@@ -135,7 +135,7 @@ btnRecomendaciones.addEventListener(('click'),()=>{
         <tr>
             <th>Id</th>
             <th>Descripcion</th>
-            <th>Riego</th>
+            <th>Riesgo</th>
             <th>Antecedente</th>
         </tr>
     `
