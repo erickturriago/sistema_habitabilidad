@@ -129,7 +129,28 @@ btnAntecedentes.addEventListener(('click'),()=>{
     })
 })
 btnRecomendaciones.addEventListener(('click'),()=>{
-    console.log("click btnRecomendaciones")
+    headTable.innerHTML=''
+    bodyTable.innerHTML=''
+    const headerRecomendaciones = `
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Riego</th>
+            <th>Antecedente</th>
+        </tr>
+    `
+    headTable.innerHTML = headerRecomendaciones
+    listaRecomendaciones.forEach((recomendacion)=>{
+        const fila = `
+            <tr>
+                <td>${recomendacion.id}</td>
+                <td>${recomendacion.descripcion}</td>
+                <td>${recomendacion.idRiesgo?recomendacion.idRiesgo:''}</td>
+                <td>${recomendacion.idAntecedente?recomendacion.idAntecedente:''}</td>
+            </tr>
+        `
+        bodyTable.innerHTML+=fila
+    })
 })
 btnShowGrafo.addEventListener(('click'),()=>{
     console.log("Mostrando")

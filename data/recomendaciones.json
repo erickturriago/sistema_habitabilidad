@@ -1,90 +1,89 @@
-<<<<<<< HEAD
 {
     "RiesgosRecomendaciones": [
         {
             "id": 1,
             "descripcion": "Mantenga las escaleras despejadas y evite almacenar objetos inflamables cerca de ellas. Realice inspecciones regulares de los sistemas de detección de incendios y asegúrese de que estén en buenas condiciones de funcionamiento.",
-            "idAntecedente": 1
+            "idRiesgo": 1
         },
         {
             "id": 2,
             "descripcion": "Instale protectores de sobrecarga en los circuitos eléctricos para prevenir cortocircuitos. Realice inspecciones periódicas del cableado eléctrico para detectar posibles fallos y repararlos de inmediato.",
-            "idAntecedente": 2
+            "idRiesgo": 2
         },
         {
             "id": 3,
             "descripcion": "Realice mantenimiento regular a los sistemas de detección y alarma de incendios. Programe pruebas de funcionamiento y reemplace las baterías según las recomendaciones del fabricante.",
-            "idAntecedente": 3
+            "idRiesgo": 3
         },
         {
             "id": 4,
             "descripcion": "Inspeccione regularmente los extintores de incendios y reemplace aquellos que estén dañados o vencidos. Capacite al personal sobre el uso correcto de los extintores y la ubicación de los mismos.",
-            "idAntecedente": 4
+            "idRiesgo": 4
         },
         {
             "id": 5,
             "descripcion": "Realice pruebas periódicas del sistema de detección de humo y reemplace los detectores que estén defectuosos. Mantenga despejadas las áreas alrededor de los detectores para una detección efectiva.",
-            "idAntecedente": 5
+            "idRiesgo": 5
         },
         {
             "id": 6,
             "descripcion": "Realice inspecciones regulares de las instalaciones de gas para detectar fugas y repare cualquier problema de inmediato. Instale detectores de gas en áreas propensas a fugas para una detección temprana.",
-            "idAntecedente": 6
+            "idRiesgo": 6
         },
         {
             "id": 7,
             "descripcion": "Mantenga limpias y despejadas las ventilaciones para garantizar un flujo de aire adecuado. Instale extractores o ventiladores adicionales si es necesario para mejorar la circulación del aire.",
-            "idAntecedente": 7
+            "idRiesgo": 7
         },
         {
             "id": 8,
             "descripcion": "Inspeccione regularmente las tuberías de agua y repare cualquier fuga o daño. Asegúrese de que los desagües estén libres de obstrucciones para evitar inundaciones.",
-            "idAntecedente": 8
+            "idRiesgo": 8
         },
         {
             "id": 9,
             "descripcion": "Realice inspecciones eléctricas periódicas y repare cualquier problema encontrado. Instale protectores contra sobrecargas y asegúrese de que todos los equipos estén correctamente conectados a tierra.",
-            "idAntecedente": 9
+            "idRiesgo": 9
         },
         {
             "id": 10,
             "descripcion": "Programe mantenimiento regular para el ascensor y realice inspecciones periódicas de seguridad. Capacite al personal sobre el uso seguro del ascensor y las medidas de evacuación en caso de emergencia.",
-            "idAntecedente": 10
+            "idRiesgo": 10
         },
         {
             "id": 11,
             "descripcion": "Mantenga las escaleras en buen estado de reparación y limpieza. Instale superficies antideslizantes y mantenga las barandas aseguradas para evitar caídas.",
-            "idAntecedente": 11
+            "idRiesgo": 11
         },
         {
             "id": 12,
             "descripcion": "Implemente medidas de seguridad adicionales, como sistemas de vigilancia y control de acceso, para prevenir intrusiones no autorizadas en el edificio.",
-            "idAntecedente": 12
+            "idRiesgo": 12
         },
         {
             "id": 13,
             "descripcion": "Reemplace las cerraduras defectuosas y fortalezca las puertas débiles para mejorar la seguridad del edificio. Capacite a los residentes sobre la importancia de cerrar las puertas con llave en todo momento.",
-            "idAntecedente": 13
+            "idRiesgo": 13
         },
         {
             "id": 14,
             "descripcion": "Mantenga los pasillos limpios y despejados para evitar obstáculos y reducir el riesgo de caídas. Instale señalización de advertencia en áreas propensas a mojarse para alertar a los residentes.",
-            "idAntecedente": 14
+            "idRiesgo": 14
         },
         {
             "id": 15,
             "descripcion": "Instale barandas de seguridad en balcones y asegúrese de que estén correctamente aseguradas. Capacite a los residentes sobre el uso seguro de los balcones y las precauciones necesarias para prevenir caídas.",
-            "idAntecedente": 15
+            "idRiesgo": 15
         },
         {
             "id": 16,
             "descripcion": "Coloque señalización clara y visible que indique las rutas de evacuación y las salidas de emergencia. Realice simulacros de evacuación periódicos para familiarizar a los residentes con los procedimientos de emergencia.",
-            "idAntecedente": 16
+            "idRiesgo": 16
         },
         {
             "id": 17,
             "descripcion": "Mantenga despejadas las salidas de emergencia y asegúrese de que estén libres de obstrucciones en todo momento. Prohíba el almacenamiento de objetos o muebles cerca de las salidas para facilitar la evacuación.",
-            "idAntecedente": 17
+            "idRiesgo": 17
         },
         {
             "id": 18,
@@ -220,169 +219,3 @@
         }
     ]
 }
-  
-=======
-[
-    {
-    "id": 1,
-    "descripcion": "Mantenga las escaleras despejadas y evite almacenar objetos inflamables cerca de ellas. Realice inspecciones regulares de los sistemas de detección de incendios y asegúrese de que estén en buenas condiciones de funcionamiento."
-    },
-    {
-    "id": 2,
-    "descripcion": "Realice inspecciones eléctricas periódicas para detectar y corregir posibles problemas de cableado o sobrecarga. No sobrecargue los enchufes y asegúrese de que todos los aparatos estén en buen estado."
-    },
-    {
-    "id": 3,
-    "descripcion": "Programar mantenimientos regulares de los sistemas de detección y alarma de incendios, incluyendo pruebas de funcionamiento y reemplazo de baterías."
-    },
-    {
-    "id": 4,
-    "descripcion": "Realice inspecciones periódicas de los extintores y asegúrese de que estén adecuadamente cargados y en buenas condiciones de funcionamiento. Proporcione capacitación sobre el uso de extintores a los residentes."
-    },
-    {
-    "id": 5,
-    "descripcion": "Mantenga limpios los detectores de humo y pruebe su funcionamiento regularmente. Reemplace las baterías según sea necesario y asegúrese de que estén conectados a una fuente de alimentación confiable."
-    },
-    {
-    "id": 6,
-    "descripcion": "Realice inspecciones periódicas de las instalaciones de gas y repare cualquier fuga detectada de inmediato. Instale detectores de gas en áreas vulnerables y capacite a los residentes sobre qué hacer en caso de una fuga."
-    },
-    {
-    "id": 7,
-    "descripcion": "Mantenga las áreas ventiladas y asegúrese de que los sistemas de ventilación estén en buen estado de funcionamiento. Limpiar regularmente los conductos de ventilación para evitar obstrucciones."
-    },
-    {
-    "id": 8,
-    "descripcion": "Reparar cualquier fuente de fugas de agua de inmediato y mantener las áreas afectadas secas. Realice inspecciones regulares de las tuberías y asegúrese de que estén en buenas condiciones."
-    },
-    {
-    "id": 9,
-    "descripcion": "Realice inspecciones eléctricas periódicas y repare cualquier problema detectado. Evite sobrecargar los circuitos y asegúrese de que todos los cables estén correctamente instalados y protegidos."
-    },
-    {
-    "id": 10,
-    "descripcion": "Programar mantenimientos regulares del ascensor y reparar cualquier problema detectado de inmediato. Proporcione capacitación sobre el uso seguro del ascensor a los residentes."
-    },
-    {
-    "id": 11,
-    "descripcion": "Realice inspecciones periódicas de las escaleras y repare cualquier daño o superficie resbaladiza. Instale pasamanos seguros y asegúrese de que las escaleras estén bien iluminadas."
-    },
-    {
-    "id": 12,
-    "descripcion": "Mantenga las puertas de acceso al edificio cerradas y aseguradas en todo momento. Instale sistemas de seguridad adicionales, como cámaras de vigilancia o cerraduras de seguridad."
-    },
-    {
-    "id": 13,
-    "descripcion": "Repare cualquier problema con las cerraduras de las puertas de inmediato y asegúrese de que todas las puertas se cierren correctamente. Refuerce las puertas vulnerables con cerraduras adicionales si es necesario."
-    },
-    {
-    "id": 14,
-    "descripcion": "Mantenga los pasillos limpios y despejados de obstáculos. Instale señales de advertencia en áreas resbaladizas o peligrosas y limpie los derrames de inmediato."
-    },
-    {
-    "id": 15,
-    "descripcion": "Instale barandas de seguridad en balcones y asegúrese de que estén en buenas condiciones de funcionamiento. Eduque a los residentes sobre los riesgos de caídas desde alturas elevadas y promueva prácticas seguras."
-    },
-    {
-    "id": 16,
-    "descripcion": "Coloque señales de salida claramente visibles en todo el edificio y mantenga despejadas las rutas de evacuación. Realice simulacros de evacuación periódicos y eduque a los residentes sobre los procedimientos de emergencia."
-    },
-    {
-    "id": 17,
-    "descripcion": "Mantenga despejadas las salidas de emergencia en todo momento y asegúrese de que no estén bloqueadas por muebles u otros objetos. Inspeccione regularmente las salidas de emergencia para garantizar su funcionalidad."
-    },
-    {
-    "id": 18,
-    "descripcion": "Implemente medidas de control de plagas, como trampas o exterminadores, para eliminar cualquier infestación existente. Mantenga limpias las áreas comunes y evite dejar comida expuesta."
-    },
-    {
-        "id": 1,
-        "descripcion": "Respete las señales de tráfico y estacione únicamente en áreas designadas para estacionamiento. Evite multas y posibles conflictos legales."
-    },
-    {
-        "id": 2,
-        "descripcion": "Mantenga siempre una velocidad segura y respete los límites de velocidad establecidos. Evite poner en peligro su seguridad y la de los demás conductores."
-    },
-    {
-        "id": 3,
-        "descripcion": "Cumpla con sus obligaciones tributarias y realice los pagos de impuestos en los plazos establecidos por la ley. Evite sanciones y cargos adicionales."
-    },
-    {
-        "id": 4,
-        "descripcion": "Respete los horarios de descanso de sus vecinos y evite realizar actividades ruidosas durante la noche. Mantenga la armonía y la convivencia pacífica en su comunidad."
-    },
-    {
-        "id": 5,
-        "descripcion": "Trate a sus mascotas con respeto y cuidado, asegurándose de proporcionarles un entorno seguro y saludable. Evite comportamientos que puedan causarles daño o sufrimiento."
-    },
-    {
-        "id": 6,
-        "descripcion": "Obtenga los permisos necesarios antes de realizar cualquier obra en su propiedad y asegúrese de cumplir con todas las regulaciones locales. Evite problemas legales y posibles multas."
-    },
-    {
-        "id": 7,
-        "descripcion": "Contribuya al bienestar de su comunidad respetando las normas de convivencia establecidas. Mantenga limpias las áreas comunes y respete los derechos de sus vecinos."
-    },
-    {
-        "id": 8,
-        "descripcion": "Siga el horario de recolección de basura establecido por las autoridades locales y asegúrese de depositar los residuos en los contenedores adecuados. Colabore para mantener la limpieza y el orden en su vecindario."
-    },
-    {
-        "id": 9,
-        "descripcion": "Deseche los residuos de manera adecuada y respete las regulaciones ambientales locales. Evite multas y contribuya a la conservación del medio ambiente."
-    },
-    {
-        "id": 10,
-        "descripcion": "Mantenga altos estándares de higiene en su establecimiento comercial para garantizar la salud y la seguridad de sus clientes y empleados. Evite sanciones y proteja la reputación de su negocio."
-    },
-    {
-        "id": 11,
-        "descripcion": "Respete el espacio público y evite obstruir el paso de peatones y vehículos. Contribuya a la seguridad vial y al libre tránsito en su comunidad."
-    },
-    {
-        "id": 12,
-        "descripcion": "Sea considerado con sus vecinos y evite realizar actividades ruidosas durante el día. Respete los horarios de descanso y la tranquilidad del entorno."
-    },
-    {
-        "id": 13,
-        "descripcion": "Recuerde recoger los excrementos de su mascota y desecharlos de manera adecuada. Contribuya a mantener limpias las calles y parques de su comunidad."
-    },
-    {
-        "id": 14,
-        "descripcion": "Use siempre el cinturón de seguridad mientras conduce para proteger su vida y la de sus pasajeros. Cumpla con las normas de seguridad vial y evite multas."
-    },
-    {
-        "id": 15,
-        "descripcion": "Respete los horarios de funcionamiento de su negocio y evite perturbar la tranquilidad del vecindario. Contribuya al bienestar de su comunidad y evite conflictos innecesarios."
-    },
-    {
-        "id": 16,
-        "descripcion": "Evite realizar quemas de basura en su propiedad y cumpla con las regulaciones ambientales locales. Proteja el medio ambiente y evite sanciones por infracciones."
-    },
-    {
-        "id": 17,
-        "descripcion": "Reduzca la velocidad en zonas escolares y respete los límites de velocidad establecidos. Contribuya a la seguridad de los niños y peatones en las áreas escolares."
-    },
-    {
-        "id": 18,
-        "descripcion": "Cumpla con las normativas de construcción establecidas y obtenga los permisos necesarios antes de realizar cualquier obra. Evite problemas legales y riesgos estructurales."
-    },
-    {
-        "id": 19,
-        "descripcion": "Respete los espacios públicos y evite causar daños a la propiedad pública. Contribuya al mantenimiento y embellecimiento de su comunidad."
-    },
-    {
-        "id": 20,
-        "descripcion": "Evite verter residuos indevidos en la red de alcantarillado y siga las normas de saneamiento ambiental. Proteja el agua y el medio ambiente de la contaminación."
-    },
-    {
-        "id": 21,
-        "descripcion": "Respete la propiedad y los derechos de los demás y evite cometer actos delictivos. Cumpla con la ley y contribuya a la seguridad de su comunidad."
-    },
-    {
-        "id": 22,
-        "descripcion": "Evite cometer robos y respete la propiedad ajena."
-    }
-]
->>>>>>> main
-    

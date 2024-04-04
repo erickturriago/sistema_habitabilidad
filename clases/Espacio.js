@@ -1,5 +1,5 @@
 export default class Espacio{
-    constructor(id,nombre,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas,listaVecinos){
+    constructor(id,nombre,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas,listaVecinos,coordenadas){
         this.id=id;
         this.nombre=nombre;
         this.tipo=tipo;
@@ -10,6 +10,8 @@ export default class Espacio{
         this.listaRiesgos=listaRiesgos;
         this.listaPersonas=listaPersonas;
         this.listaVecinos=listaVecinos;
+        this.coordenadas=coordenadas;
+        this.nodoThree=null;
     };
     getId() {
         return this.id;

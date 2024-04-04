@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import {nodos} from './main'
+import {listaEspacios} from './main'
 
 //Agregar nodos al grafo
 // Inicializar Three.js
@@ -10,45 +10,40 @@ const renderer = new THREE.WebGLRenderer();
 const containerGrafo = document.querySelector('.grafo')
 
 const nodeGeometry = new THREE.SphereGeometry(0.4, 20, 20);
-const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
-const nodes = [];
+
+listaEspacios.forEach((espacio)=>{
+
+  let material;
+
+  if(espacio.tipo=="Habitacion"){
+    material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
+  }
+  else if(espacio.tipo=="Ascensor"){
+    material=new THREE.MeshBasicMaterial({ color: 0x008000 }); //Verde
+  }
+  else if(espacio.tipo=="Pasillo"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFF0080 }); //Rosado
+  }
+  else if(espacio.tipo=="Escalera"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFFD300 }); //Amarillo
+  }
+  else if(espacio.tipo=="Terraza"){
+    material=new THREE.MeshBasicMaterial({ color: 0xFC4B08 }); //Naranja
+  }
+  else{
+    material=new THREE.MeshBasicMaterial({ color: 0xFFFFFF }); //Blanco
+  }
+
+  const node = new THREE.Mesh(nodeGeometry,material)
+  const x = espacio.coordenadas.x*4;
+  const y = espacio.coordenadas.y*4;
+  const z = espacio.coordenadas.z*5;
 
 
-
-nodos.forEach((nodo)=>{
-
-let material;
-
-if(nodo.tipo=="Habitacion"){
-  material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
-}
-else if(nodo.tipo=="Ascensor"){
-  material=new THREE.MeshBasicMaterial({ color: 0x008000 }); //Verde
-}
-else if(nodo.tipo=="Pasillo"){
-  material=new THREE.MeshBasicMaterial({ color: 0xFF0080 }); //Rosado
-}
-else if(nodo.tipo=="Escalera"){
-  material=new THREE.MeshBasicMaterial({ color: 0xFFD300 }); //Amarillo
-}
-else if(nodo.tipo=="Terraza"){
-  material=new THREE.MeshBasicMaterial({ color: 0xFC4B08 }); //Naranja
-}
-else{
-  material=new THREE.MeshBasicMaterial({ color: 0xFFFFFF }); //Blanco
-}
-
-const node = new THREE.Mesh(nodeGeometry,material)
-const x = nodo.posX*4;
-const y = nodo.posY*4;
-const z = nodo.posZ*5;
-
-
-node.position.set(x, y, z);
-scene.add(node);
-nodes.push(node);
-
-nodo.nodoThree=node;
+  node.position.set(x, y, z);
+  scene.add(node);
+  // nodes.push(node);
+  espacio.nodoThree=node;
 })
 
 
@@ -60,16 +55,14 @@ linewidth: 10,
 linecap: 'round', //ignored by WebGLRenderer
   linejoin:  'round' //ignored by WebGLRenderer
 });
-nodos.forEach((nodo)=>{
-// console.log("------------------------------------------------")
-// console.log(nodo.nombre+" Id: "+nodo.id)
-nodo.vecinosNodo.forEach((vecino)=>{
-  // console.log(vecino.nombre)
-  // console.log(vecino.nodoThree)
-  const edgeGeometry = new THREE.BufferGeometry().setFromPoints([nodo.nodoThree.position, vecino.nodoThree.position]);
-  const edge = new THREE.Line(edgeGeometry, edgeMaterial);
-  scene.add(edge);
-})
+listaEspacios.forEach((espacio)=>{
+  // console.log("Nodo: "+espacio.nombre)
+  espacio.listaVecinos.forEach((idVecino)=>{
+    const vecino = listaEspacios.filter((espacio)=>espacio.id==idVecino)[0]
+    const edgeGeometry = new THREE.BufferGeometry().setFromPoints([espacio.nodoThree.position, vecino.nodoThree.position]);
+    const edge = new THREE.Line(edgeGeometry, edgeMaterial);
+    scene.add(edge);
+  })
 })
 
 // Posicionar la cámara

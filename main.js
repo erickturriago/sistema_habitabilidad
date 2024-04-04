@@ -1,5 +1,3 @@
-
-import Nodo from './clases/Nodo';
 import Riesgo from './clases/Riesgo'
 import Persona from './clases/Persona'
 import Antecedente from './clases/Antecedente';
@@ -41,13 +39,25 @@ espaciosData.edificio.forEach((piso)=>{
   piso.espacios.forEach((espacio)=>{
     // const espacio = new Espacio(espacio)
     // id,tipo,actividad,cantidadPersonas,tamaño,nivelRiesgo,listaRiesgos,listaPersonas
-    const espacioMemoria = new Espacio(espacio.id,espacio.nombre,espacio.tipo,"Vivienda",0,200,0,[],[],espacio.vecinos)
+    const espacioMemoria = new Espacio(espacio.id,espacio.nombre,espacio.tipo,"Vivienda",0,200,0,[],[],espacio.vecinos,espacio.coordenadas)
     listaEspacios.push(espacioMemoria)
   })
 })
 
-const listaRecomendaciones = []
+console.log(listaEspacios)
 
+import recomendacionesData from './data/recomendaciones.json'
+import Recomendacion from './clases/Recomendacion';
+const listaRecomendaciones = []
+recomendacionesData.RiesgosRecomendaciones.forEach((recomendacion)=>{
+  const recomendacionMemoria = new Recomendacion(recomendacion.id,recomendacion.descripcion,recomendacion.idRiesgo,recomendacion.idAntecedente)
+  listaRecomendaciones.push(recomendacionMemoria)
+})
+
+recomendacionesData.AntecedentesRecomendaciones.forEach((recomendacion)=>{
+  const recomendacionMemoria = new Recomendacion(recomendacion.id,recomendacion.descripcion,recomendacion.idRiesgo,recomendacion.idAntecedente)
+  listaRecomendaciones.push(recomendacionMemoria)
+})
 //Cargue de objetos entre listas
 
 //Agregar antecedentes random a personas
@@ -85,52 +95,7 @@ for(let i=0;i<cantidadRiesgosAgregar;i++){
   espacioRandom.listaRiesgos.push(riesgoRandom)
 }
 
-
-// Crear nodos del grafo
-const edificio = []
-const nodos = []
-const alturaEdificio = 10
-
-const numNodes = 20;
-const radius = 5;
-
-
-
-//Crear edificio
-for(let k=0;k<Espacios.edificio.length;k++){
-  const piso = Espacios.edificio[k]
-  const arrayPiso = []
-  for(let i=0;i<piso.espacios.length;i++){
-    const espacio=piso.espacios[i]
-    // console.log(espacio)
-    const nodo = new Nodo()
-    nodo.id=espacio.id
-    nodo.posX=espacio.coordenadas.x
-    nodo.posY=espacio.coordenadas.y
-    nodo.posZ=espacio.coordenadas.z
-    nodo.vecinos=espacio.vecinos
-    nodo.nombre = espacio.nombre
-    nodo.tipo=espacio.tipo
-    nodos.push(nodo)
-    arrayPiso.push(nodo)
-  }
-  edificio.push(arrayPiso);
-}
-
-
-//Agregar vecinos de tipo nodo
-nodos.forEach((nodo)=>{
-  nodo.vecinos.forEach((vecino)=>{
-    vecino = nodos.filter((nodo)=>nodo.id==vecino)[0];
-    nodo.vecinosNodo.push(vecino)
-  })
-})
-
-
-
-
-
 // animate();
 
 
-export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones,nodos}
+export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones}
