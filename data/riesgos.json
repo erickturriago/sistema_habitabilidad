@@ -4,125 +4,143 @@
     "nombre": "Incendios",
     "descripcion": "Riesgo de fuego que puede propagarse rápidamente, poniendo en peligro la vida y la propiedad.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Escalera"
+    "tipoEspacio": "Escalera",
+    "factorRiesgo": 18
   },
   {
     "id": 2,
     "nombre": "Cortocircuitos",
     "descripcion": "Sobrecarga eléctrica o fallo en el cableado que puede provocar incendios o descargas eléctricas.",
-    "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Pasillo"
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 15
   },
   {
     "id": 3,
     "nombre": "Fallos en el sistema de alarmas contra incendios",
-    "descripcion": "Mal funcionamiento o falta de mantenimiento de los sistemas de deteccion y alarma de incendios.",
+    "descripcion": "Mal funcionamiento o falta de mantenimiento de los sistemas de detección y alarma de incendios.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Pasillo"
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 16
   },
   {
     "id": 4,
     "nombre": "Mal estado de los extintores",
-    "descripcion": "Falta de equipos o equipo inoperable para utilizar los extintores, aumentando el riesgo de propagacion del fuego.",
-    "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Pasillo"
+    "descripcion": "Falta de equipos o equipo inoperable para utilizar los extintores, aumentando el riesgo de propagación del fuego.",
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 12
   },
   {
     "id": 5,
-    "nombre": "Fallos del sistema de deteccion de humo",
-    "descripcion": "Sistema de deteccion de humo ineficaz que puede retrasar la deteccion de incendios y la activacion de alarmas.",
+    "nombre": "Fallos del sistema de detección de humo",
+    "descripcion": "Sistema de detección de humo ineficaz que puede retrasar la detección de incendios y la activación de alarmas.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Pasillo"
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 14
   },
   {
     "id": 6,
     "nombre": "Fugas de gas",
     "descripcion": "Escape de gas inflamable que puede causar explosiones o intoxicaciones.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion"
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 20
   },
   {
     "id": 7,
     "nombre": "Ventilaciones obstruidas",
-    "descripcion": "Ventilacion insuficiente que puede causar problemas de salud y aumentar el riesgo de intoxicacion por gases.",
+    "descripcion": "Ventilación insuficiente que puede causar problemas de salud y aumentar el riesgo de intoxicación por gases.",
     "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion"
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 8
   },
   {
     "id": 8,
     "nombre": "Fugas de Agua",
-    "descripcion": "Acumulacion de agua que puede causar daños estructurales y poner en peligro la seguridad de los residentes.",
-    "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion"
+    "descripcion": "Acumulación de agua que puede causar daños estructurales y poner en peligro la seguridad de los residentes.",
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 10
   },
   {
     "id": 9,
-    "nombre": "Fallos en la red electrica",
+    "nombre": "Fallos en la red eléctrica",
     "descripcion": "Defectos en el cableado o equipo eléctrico que pueden causar incendios o descargas eléctricas.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion"
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 17
   },
   {
     "id": 10,
     "nombre": "No mantenimiento del ascensor",
     "descripcion": "Mal funcionamiento del ascensor que puede resultar en accidentes o atrapamiento de personas.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Ascensor"
+    "tipoEspacio": "Ascensor",
+    "factorRiesgo": 16
   },
   {
     "id": 11,
     "nombre": "Escaleras en mal estado o resbaladizas",
     "descripcion": "Escaleras deterioradas o con superficies resbaladizas que aumentan el riesgo de caídas.",
-    "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Escalera"
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Escalera",
+    "factorRiesgo": 13
   },
   {
     "id": 12,
-    "nombre": "Intrusion de extraños en el edificio",
+    "nombre": "Intrusión de extraños en el edificio",
     "descripcion": "Presencia no autorizada de personas extrañas que pueden representar un riesgo para la seguridad de los residentes.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion"
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 18
   },
   {
     "id": 13,
     "nombre": "Fallos en la cerradura de las puertas",
     "descripcion": "Puertas que no cierran correctamente o que pueden ser fácilmente forzadas, comprometiendo la seguridad del edificio.",
-    "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion"
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 9
   },
   {
     "id": 14,
     "nombre": "Mal estado del pasillo o piso mojado",
     "descripcion": "Obstáculos o desorden en los pasillos que aumentan el riesgo de caídas para los residentes.",
-    "alcanceDelRiesgo": "local",
-    "tipoEspacio": "Pasillo"
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 7
   },
   {
     "id": 15,
-    "nombre": "Caidas desde balcones",
+    "nombre": "Caídas desde balcones",
     "descripcion": "Caídas desde alturas elevadas, como balcones, que pueden resultar en lesiones graves o fatales.",
     "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion"
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 19
   },
   {
     "id": 16,
-    "nombre": "Falta de señalizacion de rutas de evacuacion",
-    "descripcion": "Ausencia de señalizacion clara que indique las salidas de emergencia, dificultando la evacuacion en caso de necesidad.",
+    "nombre": "Falta de señalización de rutas de evacuación",
+    "descripcion": "Ausencia de señalización clara que indique las salidas de emergencia, dificultando la evacuación en caso de necesidad.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Pasillo"
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 12
   },
   {
     "id": 17,
     "nombre": "Obstrucciones en las salidas de emergencia",
-    "descripcion": "Bloqueo o impedimento de las salidas de emergencia que obstaculizan la evacuacion durante situaciones críticas.",
+    "descripcion": "Bloqueo o impedimento de las salidas de emergencia que obstaculizan la evacuación durante situaciones críticas.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Pasillo"
+    "tipoEspacio": "Pasillo",
+    "factorRiesgo": 15
   },
   {
     "id": 18,
     "nombre": "Presencia de plagas como cucarachas, roedores, etc.",
-    "descripcion": "Invasion de insectos o animales que pueden transmitir enfermedades o causar daños materiales.",
-    "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion"
+    "descripcion": "Invasión de insectos o animales que pueden transmitir enfermedades o causar daños materiales.",
+    "alcanceDelRiesgo": "Zonal",
+    "tipoEspacio": "Habitación",
+    "factorRiesgo": 11
   }
 ]
