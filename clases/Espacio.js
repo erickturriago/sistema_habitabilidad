@@ -116,35 +116,54 @@ export default class Espacio{
 
     // 
     propagarRiesgoGlobal(riesgo,listaEspacios,notificados,idPadre){
-        
-        // console.log(`Nodo actual `+this.id)
+
+        let padre = listaEspacios.find((n)=>n.id==idPadre);
+    
+
+        let nodoFueDestino = notificados.filter((n)=>n.destino==parseInt(this.id))
+
         notificados.push({'origen':parseInt(idPadre),'destino':parseInt(this.id)});
 
-        if(idPadre==null){
-            this.riesgoTemp=this.riesgoGlobal;
-        }
+        
 
+        console.log('--------------------------------------')
+
+        console.log("Nodo actual "+this.id)
+        console.log(JSON.stringify(nodoFueDestino))
+        // console.log(JSON.stringify(notificados))
 
         this.listaVecinos.forEach(idVecino=>{
+            
+
             let obj = null
             notificados.forEach((n)=>{
                 if(n.origen == parseInt(this.id) && n.destino==parseInt(idVecino)){
                     obj = n;
                 }
-                else if(n.origen == parseInt(idVecino) && n.destino==parseInt(this.id)){
+                if(n.origen == parseInt(idVecino) && n.destino==parseInt(this.id)){
                     obj = n;
                 }
             })
 
             if(obj == null){
-
-                if(idPadre!=null){
-                    let padre = listaEspacios.find((n)=>n.id==idPadre);
+                if(idPadre==null){
+                    this.riesgoTemp=this.riesgoGlobal;
+                }
+                else if(nodoFueDestino.length==0){
+                    console.log("Nodo no ha sido destino")
                     this.riesgoLocal+=padre.riesgoTemp/2;
-
+                    this.riesgoTemp = padre.riesgoTemp/2;
+                }
+                else{
+                    console.log(`Nodo ${this.id} fue destino`)
+                    this.riesgoLocal+=padre.riesgoTemp/2;
+                }
+                if(padre && idPadre==12){
                     console.log(`Aumentando nodo ${this.id} desde padre ${idPadre} en ${padre.riesgoTemp/2}`)
                 }
-            
+                if(padre && this.id==12){
+                    console.log(`Aumentando nodo ${this.id} desde padre ${idPadre} en ${padre.riesgoTemp/2}`)
+                }
                 let vecino = listaEspacios.find((e)=>e.id==idVecino);
                 let mitadRiesgo = 0;
                 mitadRiesgo = riesgo/2;
