@@ -45,7 +45,7 @@ btnEspacios.addEventListener(('click'),()=>{
                 <td>${espacio.actividad}</td>
                 <td>${espacio.cantidadPersonas}</td>
                 <td>${espacio.tamaño}</td>
-                <td>${espacio.nivelRiesgo}</td>
+                <td>${Number(espacio.riesgoLocal.toFixed(2))}</td>
                 <td>${espacio.listaRiesgos.map((riesgo)=>{return riesgo.id})}</td>
                 <td>${espacio.listaPersonas.map((persona)=>{return persona.id})}</td>
                 <td>${espacio.listaVecinos}</td>
@@ -64,6 +64,7 @@ btnRiesgos.addEventListener(('click'),()=>{
             <th>Descripcion</th>
             <th>Alcance</th>
             <th>Tipo Espacio</th>
+            <th>Peligrosidad</th>
         </tr>
     `
     headTable.innerHTML = headerRiegos
@@ -75,6 +76,7 @@ btnRiesgos.addEventListener(('click'),()=>{
                 <td>${riesgo.descripcion}</td>
                 <td>${riesgo.alcanceDelRiesgo}</td>
                 <td>${riesgo.tipoEspacio}</td>
+                <td>${riesgo.factorRiesgo}</td>
             </tr>
         `
         bodyTable.innerHTML+=fila

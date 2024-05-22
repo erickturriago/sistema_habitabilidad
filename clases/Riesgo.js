@@ -1,10 +1,11 @@
 export default class Riesgo{
-    constructor(id,nombre,descripcion,alcanceDelRiesgo,tipoEspacio){
+    constructor(id,nombre,descripcion,alcanceDelRiesgo,tipoEspacio,factorRiesgo){
         this.id=id;
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.alcanceDelRiesgo=alcanceDelRiesgo;
         this.tipoEspacio=tipoEspacio;
+        this.factorRiesgo=factorRiesgo;
     }
     // Getter y setter para id
     getId() {
@@ -44,5 +45,12 @@ export default class Riesgo{
     }
     setTipoEspacio(tipoEspacio) {
         this.tipoEspacio = tipoEspacio;
+    }
+    // Getter y setter para factorRiesgo
+    getFactorRiesgo() {
+        return this.factorRiesgo;
+    }
+    setFactorRiesgo(factorRiesgo) {
+        this.factorRiesgo = factorRiesgo;
     }
 }

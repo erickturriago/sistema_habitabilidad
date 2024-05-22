@@ -9,10 +9,9 @@ import Espacio from './clases/Espacio';
 import personasData from './data/personas.json'
 const listaPersonas = [] //Arreglo de elementos de tipo Persona.
 personasData.forEach((personaData)=>{
-  const persona = new Persona(personaData.id,personaData.nombre,personaData.edad,[])
+  const persona = new Persona(personaData.id,personaData.nombre,personaData.edad,personaData.listaAntecedentes)
   listaPersonas.push(persona)
 })
-
 // Creacion antecedentes
 import antecedentesData from './data/antecedentes.json'
 const listaAntecedentes = []
@@ -26,7 +25,7 @@ antecedentesData.forEach((antecedenteData)=>{
 import riesgosData from './data/riesgos.json'
 const listaRiesgos = []
 riesgosData.forEach((riesgoData)=>{
-  const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.alcanceDelRiesgo,riesgoData.tipoEspacio)
+  const riesgo = new Riesgo(riesgoData.id,riesgoData.nombre,riesgoData.descripcion,riesgoData.alcanceDelRiesgo,riesgoData.tipoEspacio,riesgoData.factorRiesgo)
   listaRiesgos.push(riesgo)
 })
 
@@ -43,8 +42,6 @@ espaciosData.edificio.forEach((piso)=>{
     listaEspacios.push(espacioMemoria)
   })
 })
-
-console.log(listaEspacios)
 
 import recomendacionesData from './data/recomendaciones.json'
 import Recomendacion from './clases/Recomendacion';
@@ -68,34 +65,143 @@ for(let i=0;i<cantidadAntecedentesRandom;i++){
   do{
     personaRandom=listaPersonas[parseInt(Math.random()*listaPersonas.length)]
   }while(personaRandom.listaAntecedentes.includes(antecedenteRandom))
-  // let espacioRandom = listaEspacios[parseInt(Math.random()*listaEspacios.length)]
-  personaRandom.listaAntecedentes.push(antecedenteRandom)
-}
-// console.log(listaPersonas.filter((persona)=>persona.listaAntecedentes.length>1))
+    // let espacioRandom = listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+    personaRandom.listaAntecedentes.push(antecedenteRandom)
+  }
+  // console.log(listaPersonas.filter((persona)=>persona.listaAntecedentes.length>1))
+  
+  //Agregar habitantes a cada Espacio
+  listaPersonas.forEach((persona)=>{
+    let espacioRandom;
+    do{
+      espacioRandom=listaEspacios[parseInt(Math.random()*listaEspacios.length)]
+    }while(espacioRandom.cantidadPersonas>=5 || espacioRandom.listaPersonas.includes(persona) || espacioRandom.tipo!=='Habitacion')
+      espacioRandom.listaPersonas.push(persona)
+      espacioRandom.cantidadPersonas++;
+    })
+    
+    //Agregar riesgos random a cada espacio
+    let cantidadRiesgosAgregar = 30;
+    for (let i = 0; i < cantidadRiesgosAgregar; i++) {
+      let riesgoRandom = listaRiesgos[parseInt(Math.random() * listaRiesgos.length)];
+      let espaciosFiltrados = listaEspacios.filter(espacio => espacio.tipo === riesgoRandom.tipoEspacio);
+      let espacioRandom;
+      do {
+        espacioRandom = espaciosFiltrados[parseInt(Math.random() * espaciosFiltrados.length)];
+      } while (espacioRandom.listaRiesgos.includes(riesgoRandom));
 
-//Agregar habitantes a cada Espacio
-listaPersonas.forEach((persona)=>{
-  let espacioRandom;
-  do{
-    espacioRandom=listaEspacios[parseInt(Math.random()*listaEspacios.length)]
-  }while(espacioRandom.cantidadPersonas>=5 || espacioRandom.listaPersonas.includes(persona) || espacioRandom.tipo!=='Habitacion')
-  espacioRandom.listaPersonas.push(persona)
-  espacioRandom.cantidadPersonas++;
-})
+      espacioRandom.listaRiesgos.push(riesgoRandom);
+    }
+    
+      
+      // animate();
+//________________________________________________________________________________________________________________________________
+// Asignar riesgo inicial a cada espacio
+  // listaEspacios.forEach(espacio => {
+  //   let riesgoTotal = 0;
 
-//Agregar riesgos random a cada espacio
-let cantidadRiesgosAgregar=30
-for(let i=0;i<cantidadRiesgosAgregar;i++){
-  let riesgoRandom = listaRiesgos[parseInt(Math.random()*listaRiesgos.length)]
-  let espacioRandom;
-  do{
-    espacioRandom=listaEspacios[parseInt(Math.random()*listaEspacios.length)]
-  }while(riesgoRandom.tipoEspacio!==espacioRandom.tipo || espacioRandom.listaRiesgos.includes(riesgoRandom))
-  // let espacioRandom = listaEspacios[parseInt(Math.random()*listaEspacios.length)]
-  espacioRandom.listaRiesgos.push(riesgoRandom)
-}
+  //   // Sumar los factores de riesgo de los riesgos en el espacio
+  //   riesgoTotal += espacio.getRiesgoInicial();
 
-// animate();
+  //   // Sumar los factores de riesgo de los riesgos en el espacio
+  //   espacio.listaRiesgos.forEach(riesgo => {
+  //     riesgoTotal += riesgo.factorRiesgo;
+  //   });
+    
+  //   // Sumar los niveles de peligrosidad de los antecedentes de las personas en el espacio
+  //   espacio.listaPersonas.forEach(persona => {
+  //     persona.listaAntecedentes.forEach(antecedente => {
+  //       riesgoTotal += antecedente.nivelPeligrosidad;
+  //     });
+  //   });
+
+  //   // Asignar el riesgo total al espacio
+  //   espacio.setRiesgoInicial(espacio.getRiesgoInicial() + riesgoTotal);
+  //   espacio.setNivelRiesgo(espacio.getRiesgoInicial());
+  //   console.log(`Nombre ${espacio.getNombre()} Riesgo Inicial: ${espacio.getRiesgoInicial()}`)
+  // });
+  //________________________________________________________________________________________________________________________________
+  //Propagacion
+  // listaEspacios.forEach(espacio => {
+  //   let riesgoInicial = espacio.getRiesgoInicial();
+  //   let riesgoPropagacion = riesgoInicial * 0.25;
+    
+  //   espacio.listaRiesgos.forEach(riesgo => {
+  //     if (riesgo.alcanceDelRiesgo === 'Zonal') {
+  //       // Propagar a vecinos
+  //       espacio.listaVecinos.forEach(idVecino => {
+  //         let vecino = listaEspacios.find(esp => esp.id === idVecino);
+  //         if (vecino) {
+  //           vecino.setRiesgoInicial(vecino.getRiesgoInicial() + riesgoPropagacion);
+  //         }
+  //       });
+  //     } else if (riesgo.alcanceDelRiesgo === 'Global') {
+  //       // Propagar a todos los espacios
+  //       listaEspacios.forEach(esp => {
+  //         esp.setRiesgoInicial(esp.getRiesgoInicial() + riesgoPropagacion);
+  //       });
+  //     }
+  //   });
+  //   //espacio.setNivelRiesgo(Math.floor(espacio.getRiesgoInicial()));
+  //   console.log(`Nombre ${espacio.getNombre()} Riesgo Total: ${espacio.getRiesgoInicial()}`)
+  // });
+
+  //Asignar riesgo local
+listaEspacios.forEach((espacio)=>{
+    let riesgosLocales = espacio.listaRiesgos.filter((riesgo)=>riesgo.alcanceDelRiesgo=='Local');
+    espacio.listaPersonas.forEach(persona => {
+      persona.listaAntecedentes.forEach(antecedente => {
+        espacio.riesgoLocal += antecedente.nivelPeligrosidad;
+      });
+    });
+    riesgosLocales.forEach((riesgo)=>{
+      espacio.riesgoLocal += riesgo.factorRiesgo;
+    })
+  })
+
+
+  //Asignar riesgo Zonal
+  let nodosNotificados = []
+  listaEspacios.forEach((espacio)=>{
+    let riesgosZonales = espacio.listaRiesgos.filter((riesgo)=>riesgo.alcanceDelRiesgo=='Zonal');
+    // console.log("------------------------------------------")
+    // console.log("Espacio "+espacio.id)
+    // console.log(riesgosZonales)
+    
+    riesgosZonales.forEach((riesgo)=>{
+      espacio.riesgoZonal += riesgo.factorRiesgo;
+      espacio.riesgoLocal += riesgo.factorRiesgo;
+    })
+    
+    if(espacio.listaRiesgos.filter((riesgo)=>riesgo.alcanceDelRiesgo=='Zonal').length >0){
+      espacio.listaVecinos.forEach((vecino)=>{
+        let vecinoMemoria = listaEspacios.find((n)=>n.id == vecino);
+        vecinoMemoria.riesgoLocal += espacio.riesgoZonal*0.25;
+        // console.log(`Vecino ${vecinoMemoria.id} recibe ${espacio.riesgoZonal*0.25} riesgo de ${espacio.id}`)
+      })
+    }
+  })
+
+  //Asignar riesgo Global
+  let listaEspaciosConRiesgoGlobal = []
+  let notificados = []
+  listaEspacios.forEach((espacio)=>{
+    let riesgosGlobales = espacio.listaRiesgos.filter((riesgo)=>riesgo.alcanceDelRiesgo=='Global');
+
+    riesgosGlobales.forEach((riesgo)=>{
+      espacio.riesgoGlobal += riesgo.factorRiesgo;
+      espacio.riesgoLocal += riesgo.factorRiesgo;
+      if(!listaEspaciosConRiesgoGlobal.includes(espacio)){
+        listaEspaciosConRiesgoGlobal.push(espacio);
+      }
+    })
+  })
+
+  listaEspaciosConRiesgoGlobal.forEach((espacio)=>{
+    console.log("-----------Inicia propagacion en "+espacio.id+"----------------")
+    espacio.propagarRiesgoGlobal(espacio.riesgoGlobal,listaEspacios,notificados,null);
+  })
+
 
 
 export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones}
