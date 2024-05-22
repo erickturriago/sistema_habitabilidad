@@ -15,23 +15,33 @@ listaEspacios.forEach((espacio)=>{
 
   let material;
 
-  if(espacio.tipo=="Habitacion"){
-    material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
-  }
-  else if(espacio.tipo=="Ascensor"){
+  // if(espacio.tipo=="Habitacion"){
+  //   material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
+  // }
+  // else if(espacio.tipo=="Ascensor"){
+  //   material=new THREE.MeshBasicMaterial({ color: 0x008000 }); //Verde
+  // }
+  // else if(espacio.tipo=="Pasillo"){
+  //   material=new THREE.MeshBasicMaterial({ color: 0xFF0080 }); //Rosado
+  // }
+  // else if(espacio.tipo=="Escalera"){
+  //   material=new THREE.MeshBasicMaterial({ color: 0xFFD300 }); //Amarillo
+  // }
+  // else if(espacio.tipo=="Terraza"){
+  //   material=new THREE.MeshBasicMaterial({ color: 0xFC4B08 }); //Naranja
+  // }
+  // else{
+  //   material=new THREE.MeshBasicMaterial({ color: 0xFFFFFF }); //Blanco
+  // }
+
+  if(espacio.riesgoLocal >= 0 && espacio.riesgoLocal<30){
     material=new THREE.MeshBasicMaterial({ color: 0x008000 }); //Verde
   }
-  else if(espacio.tipo=="Pasillo"){
-    material=new THREE.MeshBasicMaterial({ color: 0xFF0080 }); //Rosado
+  else if(espacio.riesgoLocal >= 30 && espacio.riesgoLocal<60){
+    material=new THREE.MeshBasicMaterial({ color: 0x0000FF }); //Azul
   }
-  else if(espacio.tipo=="Escalera"){
-    material=new THREE.MeshBasicMaterial({ color: 0xFFD300 }); //Amarillo
-  }
-  else if(espacio.tipo=="Terraza"){
-    material=new THREE.MeshBasicMaterial({ color: 0xFC4B08 }); //Naranja
-  }
-  else{
-    material=new THREE.MeshBasicMaterial({ color: 0xFFFFFF }); //Blanco
+  else if(espacio.riesgoLocal>=60){
+    material=new THREE.MeshBasicMaterial({ color: 0xFF0000 }); //Rojo
   }
 
   const node = new THREE.Mesh(nodeGeometry,material)
