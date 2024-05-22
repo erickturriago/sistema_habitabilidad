@@ -44,40 +44,35 @@
     "nombre": "Fugas de gas",
     "descripcion": "Escape de gas inflamable que puede causar explosiones o intoxicaciones.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 20
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 7,
     "nombre": "Ventilaciones obstruidas",
     "descripcion": "Ventilación insuficiente que puede causar problemas de salud y aumentar el riesgo de intoxicación por gases.",
     "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 8
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 8,
     "nombre": "Fugas de Agua",
-    "descripcion": "Acumulación de agua que puede causar daños estructurales y poner en peligro la seguridad de los residentes.",
-    "alcanceDelRiesgo": "Zonal",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 10
+    "descripcion": "Acumulacion de agua que puede causar daños estructurales y poner en peligro la seguridad de los residentes.",
+    "alcanceDelRiesgo": "Local",
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 9,
     "nombre": "Fallos en la red eléctrica",
     "descripcion": "Defectos en el cableado o equipo eléctrico que pueden causar incendios o descargas eléctricas.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 17
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 10,
     "nombre": "No mantenimiento del ascensor",
     "descripcion": "Mal funcionamiento del ascensor que puede resultar en accidentes o atrapamiento de personas.",
-    "alcanceDelRiesgo": "Zonal",
-    "tipoEspacio": "Ascensor",
-    "factorRiesgo": 16
+    "alcanceDelRiesgo": "Global",
+    "tipoEspacio": "Ascensor"
   },
   {
     "id": 11,
@@ -92,16 +87,14 @@
     "nombre": "Intrusión de extraños en el edificio",
     "descripcion": "Presencia no autorizada de personas extrañas que pueden representar un riesgo para la seguridad de los residentes.",
     "alcanceDelRiesgo": "Global",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 18
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 13,
     "nombre": "Fallos en la cerradura de las puertas",
     "descripcion": "Puertas que no cierran correctamente o que pueden ser fácilmente forzadas, comprometiendo la seguridad del edificio.",
-    "alcanceDelRiesgo": "Zonal",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 9
+    "alcanceDelRiesgo": "Local",
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 14,
@@ -116,8 +109,7 @@
     "nombre": "Caídas desde balcones",
     "descripcion": "Caídas desde alturas elevadas, como balcones, que pueden resultar en lesiones graves o fatales.",
     "alcanceDelRiesgo": "Local",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 19
+    "tipoEspacio": "Habitacion"
   },
   {
     "id": 16,
@@ -138,9 +130,8 @@
   {
     "id": 18,
     "nombre": "Presencia de plagas como cucarachas, roedores, etc.",
-    "descripcion": "Invasión de insectos o animales que pueden transmitir enfermedades o causar daños materiales.",
-    "alcanceDelRiesgo": "Zonal",
-    "tipoEspacio": "Habitacion",
-    "factorRiesgo": 11
+    "descripcion": "Invasion de insectos o animales que pueden transmitir enfermedades o causar daños materiales.",
+    "alcanceDelRiesgo": "Local",
+    "tipoEspacio": "Habitacion"
   }
 ]
