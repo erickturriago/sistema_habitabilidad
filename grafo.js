@@ -39,6 +39,7 @@ listaEspacios.forEach((espacio)=>{
   const y = espacio.coordenadas.y*4;
   const z = espacio.coordenadas.z*5;
 
+  node.userData = {id:espacio.id,nombre:espacio.nombre}
 
   node.position.set(x, y, z);
   scene.add(node);
@@ -87,7 +88,7 @@ controls.maxDistance = 100; // Distancia máxima a la que la cámara puede aleja
 let isAnimate=false
 
 const animate = async () =>{
-    console.log("animate")
+    // console.log("animate")
     if(isAnimate){
         renderer.setSize(containerGrafo.offsetWidth, containerGrafo.offsetHeight);
         // console.log(containerGrafo.offsetWidth)
@@ -104,6 +105,38 @@ const animate = async () =>{
 
 const setAnimate = (value)=>{
     isAnimate=value
+}
+
+
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+document.addEventListener('mousedown', onMouseDown);
+
+function onMouseDown(event) {
+  // Calcular las coordenadas del ratón normalizadas (-1 a +1)
+  const rect = containerGrafo.getBoundingClientRect();
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+  // Establecer el rayo desde la cámara a través del punto del ratón
+  raycaster.setFromCamera(mouse, camera);
+
+  // Calcular intersecciones con los objetos en la escena
+  const intersections = raycaster.intersectObjects(scene.children, true);
+  if (intersections.length > 0) {
+    for (let i = 0; i < intersections.length; i++) {
+      const selectedObject = intersections[i].object;
+      if (selectedObject.geometry.type === 'SphereGeometry') {
+        const color = new THREE.Color(Math.random(), Math.random(), Math.random());
+        selectedObject.material.color.set(color);
+        console.log(selectedObject)
+        console.log(`${selectedObject.userData.nombre} was clicked!`);
+        alert(`Espacio con id ${selectedObject.userData.id} fue clickeado`)
+        break; // Romper el bucle si encontramos un objeto de interés
+      }
+    }
+  }
 }
 
 
