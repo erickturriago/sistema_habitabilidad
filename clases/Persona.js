@@ -4,6 +4,7 @@ export default class Persona{
         this.nombre=nombre;
         this.edad=edad;
         this.listaAntecedentes=listaAntecedentes;
+        this.riesgoTotal;
     }
     getId() {
         return this.id;
@@ -35,5 +36,12 @@ export default class Persona{
 
     setListaAntecedentes(listaAntecedentes) {
         this.listaAntecedentes = listaAntecedentes;
+    }
+
+    getRiesgoTotal() {
+        return this.riesgoTotal;
+    }
+    setRiesgoTotal(riesgoTotal) {
+        this.riesgoTotal = riesgoTotal;
     }
 }

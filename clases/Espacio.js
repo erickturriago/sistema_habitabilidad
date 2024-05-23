@@ -6,7 +6,6 @@ export default class Espacio{
         this.actividad=actividad;
         this.cantidadPersonas=cantidadPersonas;
         this.tamaño=tamaño;
-        this.nivelRiesgo=nivelRiesgo;
         this.listaRiesgos=listaRiesgos;
         this.listaPersonas=listaPersonas;
         this.listaVecinos=listaVecinos;

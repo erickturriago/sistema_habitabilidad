@@ -11,17 +11,18 @@ const closeGraph = document.querySelector('.closeGraph')
 const headTable = document.querySelector('.headTable')
 const bodyTable = document.querySelector('.bodyTable')
 
+const btnPlay = document.createElement('button');
+btnPlay.innerHTML = '<i class="fas fa-play"></i>';
+btnPlay.classList.add('btnPlay');
+document.body.appendChild(btnPlay);
 
-import {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones} from "./main"
-import {animate,setAnimate} from './grafo'
+import { listaEspacios, listaRiesgos, listaPersonas, listaAntecedentes, listaRecomendaciones, moverHabitantes, riesgosEspacio } from "./main"
+import { animate, setAnimate, setMaterial } from './grafo'
 
-//Grafo inicia oculto
-// divGrafo.style.display = 'none'
-
-btnEspacios.addEventListener(('click'),()=>{
-    headTable.innerHTML=''
-    bodyTable.innerHTML=''
-    const headerEspacios = `
+btnEspacios.addEventListener(('click'), () => {
+  headTable.innerHTML = ''
+  bodyTable.innerHTML = ''
+  const headerEspacios = `
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -35,9 +36,9 @@ btnEspacios.addEventListener(('click'),()=>{
             <th>Vecinos</th>
         </tr>
     `
-    headTable.innerHTML = headerEspacios
-    listaEspacios.forEach((espacio)=>{
-        const fila = `
+  headTable.innerHTML = headerEspacios
+  listaEspacios.forEach((espacio) => {
+    const fila = `
             <tr>
                 <td>${espacio.id}</td>
                 <td>${espacio.nombre}</td>
@@ -46,18 +47,18 @@ btnEspacios.addEventListener(('click'),()=>{
                 <td>${espacio.cantidadPersonas}</td>
                 <td>${espacio.tamaño}</td>
                 <td>${Number(espacio.riesgoLocal.toFixed(2))}</td>
-                <td>${espacio.listaRiesgos.map((riesgo)=>{return riesgo.id})}</td>
-                <td>${espacio.listaPersonas.map((persona)=>{return persona.id})}</td>
+                <td>${espacio.listaRiesgos.map((riesgo) => { return riesgo.id })}</td>
+                <td>${espacio.listaPersonas.map((persona) => { return persona.id })}</td>
                 <td>${espacio.listaVecinos}</td>
             </tr>
         `
-        bodyTable.innerHTML+=fila
-    })
+    bodyTable.innerHTML += fila
+  })
 })
-btnRiesgos.addEventListener(('click'),()=>{
-    headTable.innerHTML=''
-    bodyTable.innerHTML=''
-    const headerRiegos = `
+btnRiesgos.addEventListener(('click'), () => {
+  headTable.innerHTML = ''
+  bodyTable.innerHTML = ''
+  const headerRiegos = `
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -67,9 +68,9 @@ btnRiesgos.addEventListener(('click'),()=>{
             <th>Peligrosidad</th>
         </tr>
     `
-    headTable.innerHTML = headerRiegos
-    listaRiesgos.forEach((riesgo)=>{
-        const fila = `
+  headTable.innerHTML = headerRiegos
+  listaRiesgos.forEach((riesgo) => {
+    const fila = `
             <tr>
                 <td>${riesgo.id}</td>
                 <td>${riesgo.nombre}</td>
@@ -79,13 +80,13 @@ btnRiesgos.addEventListener(('click'),()=>{
                 <td>${riesgo.factorRiesgo}</td>
             </tr>
         `
-        bodyTable.innerHTML+=fila
-    })
+    bodyTable.innerHTML += fila
+  })
 })
-btnPersonas.addEventListener(('click'),()=>{
-    headTable.innerHTML=''
-    bodyTable.innerHTML=''
-    const headerPersonas = `
+btnPersonas.addEventListener(('click'), () => {
+  headTable.innerHTML = ''
+  bodyTable.innerHTML = ''
+  const headerPersonas = `
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -93,23 +94,23 @@ btnPersonas.addEventListener(('click'),()=>{
             <th>Antecedentes</th>
         </tr>
     `
-    headTable.innerHTML = headerPersonas
-    listaPersonas.forEach((persona)=>{
-        const fila = `
+  headTable.innerHTML = headerPersonas
+  listaPersonas.forEach((persona) => {
+    const fila = `
             <tr>
                 <td>${persona.id}</td>
                 <td>${persona.nombre}</td>
                 <td>${persona.edad}</td>
-                <td>${persona.listaAntecedentes.map((antecedente)=>{return antecedente.id})}</td>
+                <td>${persona.listaAntecedentes.map((antecedente) => { return antecedente.id })}</td>
             </tr>
         `
-        bodyTable.innerHTML+=fila
-    })
+    bodyTable.innerHTML += fila
+  })
 })
-btnAntecedentes.addEventListener(('click'),()=>{
-    headTable.innerHTML=''
-    bodyTable.innerHTML=''
-    const headerAntecedentes = `
+btnAntecedentes.addEventListener(('click'), () => {
+  headTable.innerHTML = ''
+  bodyTable.innerHTML = ''
+  const headerAntecedentes = `
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -117,9 +118,9 @@ btnAntecedentes.addEventListener(('click'),()=>{
             <th>Peligrosidad</th>
         </tr>
     `
-    headTable.innerHTML = headerAntecedentes
-    listaAntecedentes.forEach((antecedente)=>{
-        const fila = `
+  headTable.innerHTML = headerAntecedentes
+  listaAntecedentes.forEach((antecedente) => {
+    const fila = `
             <tr>
                 <td>${antecedente.id}</td>
                 <td>${antecedente.nombre}</td>
@@ -127,13 +128,13 @@ btnAntecedentes.addEventListener(('click'),()=>{
                 <td>${antecedente.nivelPeligrosidad}</td>
             </tr>
         `
-        bodyTable.innerHTML+=fila
-    })
+    bodyTable.innerHTML += fila
+  })
 })
-btnRecomendaciones.addEventListener(('click'),()=>{
-    headTable.innerHTML=''
-    bodyTable.innerHTML=''
-    const headerRecomendaciones = `
+btnRecomendaciones.addEventListener(('click'), () => {
+  headTable.innerHTML = ''
+  bodyTable.innerHTML = ''
+  const headerRecomendaciones = `
         <tr>
             <th>Id</th>
             <th>Descripcion</th>
@@ -141,33 +142,34 @@ btnRecomendaciones.addEventListener(('click'),()=>{
             <th>Antecedente</th>
         </tr>
     `
-    headTable.innerHTML = headerRecomendaciones
-    listaRecomendaciones.forEach((recomendacion)=>{
-        const fila = `
+  headTable.innerHTML = headerRecomendaciones
+  listaRecomendaciones.forEach((recomendacion) => {
+    const fila = `
             <tr>
                 <td>${recomendacion.id}</td>
                 <td>${recomendacion.descripcion}</td>
-                <td>${recomendacion.idRiesgo?recomendacion.idRiesgo:''}</td>
-                <td>${recomendacion.idAntecedente?recomendacion.idAntecedente:''}</td>
+                <td>${recomendacion.idRiesgo ? recomendacion.idRiesgo : ''}</td>
+                <td>${recomendacion.idAntecedente ? recomendacion.idAntecedente : ''}</td>
             </tr>
         `
-        bodyTable.innerHTML+=fila
-    })
+    bodyTable.innerHTML += fila
+  })
 })
-btnShowGrafo.addEventListener(('click'),()=>{
-    console.log("Mostrando")
-    divGrafo.removeAttribute('hidden')
-    // setTimeout(() => {
-    //     animate()
-    // }, 1000);
-    setAnimate(true)
-    animate()
+btnShowGrafo.addEventListener(('click'), () => {
+  divGrafo.removeAttribute('hidden')
+  setAnimate(true)
+  animate()
 })
-closeGraph.addEventListener('click',()=>{
-    divGrafo.setAttribute('hidden',true)
-    setAnimate(false)
+closeGraph.addEventListener('click', () => {
+  divGrafo.setAttribute('hidden', true)
+  setAnimate(false)
 })
 
+btnPlay.addEventListener('click', () => {
+  moverHabitantes(); // Llama a la función moverHabitantes para organizar los habitantes
+  riesgosEspacio(); // Llama a la función riesgosEspacio para calcular el riesgo de cada espacio
+  setMaterial(); // Llama a la función setMaterial para actualizar el color de los nodos
+  btnEspacios.click(); // Actualiza la tabla de espacios para reflejar los cambios
+});
 
-btnEspacios.click()
-// animate()
+btnEspacios.click(); // Carga los espacios al inicio
