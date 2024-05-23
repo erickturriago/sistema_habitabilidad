@@ -22,10 +22,12 @@ material = new THREE.MeshBasicMaterial({ color: 0xC4B10E}); // Amarillo
     material = new THREE.MeshBasicMaterial({ color: 0xC40E0E}); // Rojo
   }
 
-  const node = new THREE.Mesh(nodeGeometry, material);
-  const x = espacio.coordenadas.x * 4;
-  const y = espacio.coordenadas.y * 4;
-  const z = espacio.coordenadas.z * 5;
+  const node = new THREE.Mesh(nodeGeometry,material)
+  const x = espacio.coordenadas.x*4;
+  const y = espacio.coordenadas.y*4;
+  const z = espacio.coordenadas.z*5;
+
+  node.userData = {id:espacio.id,nombre:espacio.nombre}
 
   node.position.set(x, y, z);
   node.userData = { espacio }; // Almacenar el espacio en los datos del usuario del nodo
@@ -64,20 +66,24 @@ controls.maxDistance = 100; // Distancia máxima a la que la cámara puede aleja
 
 let isAnimate = false;
 
-const animate = async () => {
-  if (isAnimate) {
-    renderer.setSize(containerGrafo.offsetWidth, containerGrafo.offsetHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    containerGrafo.appendChild(renderer.domElement);
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-    controls.update();
-  }
-};
+const animate = async () =>{
+    // console.log("animate")
+    if(isAnimate){
+        renderer.setSize(containerGrafo.offsetWidth, containerGrafo.offsetHeight);
+        renderer.setPixelRatio(window.devicePixelRatio)
+        containerGrafo.appendChild(renderer.domElement);
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+        controls.update();
+    }
+    else{
 
-const setAnimate = (value) => {
-  isAnimate = value;
-};
+    }
+}
+
+const setAnimate = (value)=>{
+    isAnimate=value
+}
 
 function setMaterial(){
   listaEspacios.forEach((espacio) => {
@@ -99,9 +105,6 @@ function setMaterial(){
   });
 }
 
-// Agregar el event listener para el clic
-window.addEventListener('click', onMouseDown);
-
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
@@ -122,6 +125,9 @@ function onMouseDown(event) {
     for (let i = 0; i < intersections.length; i++) {
       const selectedObject = intersections[i].object;
       if (selectedObject.geometry.type === 'SphereGeometry') {
+        const color = new THREE.Color(Math.random(), Math.random(), Math.random());
+        selectedObject.material.color.set(color);
+        console.log(selectedObject)
         console.log(`${selectedObject.userData.nombre} was clicked!`);
         alert(`Espacio con id ${selectedObject.userData.id} fue clickeado`)
         break; // Romper el bucle si encontramos un objeto de interés
@@ -130,5 +136,4 @@ function onMouseDown(event) {
   }
 }
 
-
-export { animate, setAnimate, setMaterial };
+export {animate,setAnimate}
