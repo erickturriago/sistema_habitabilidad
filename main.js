@@ -197,11 +197,43 @@ listaEspacios.forEach((espacio)=>{
     })
   })
 
+  console.log('----------------------------------------')
+  console.log(`Espacios con riegos globales ${listaEspaciosConRiesgoGlobal.map((e)=>e.id)}`)
+
   listaEspaciosConRiesgoGlobal.forEach((espacio)=>{
-    console.log("-----------Inicia propagacion en "+espacio.id+"----------------")
-    espacio.propagarRiesgoGlobal(espacio.riesgoGlobal,listaEspacios,notificados,null);
+    let nodosVecinos = [...espacio.listaVecinos];
+    let riesgo = espacio.riesgoGlobal;
+    console.log('---------------------------------------------')
+    console.log(`Espacio ${espacio.id} riesgo ${riesgo}`);
+    let listaVisitados = []
+    listaVisitados.push(parseInt(espacio.id))
+    do {
+      let nuevosVecinos = [];
+  
+      riesgo = riesgo / 2;
+  
+      nodosVecinos.forEach((idVecino) => {
+        let vecino = listaEspacios.find((e) => parseInt(e.id) == parseInt(idVecino));
+  
+        if (vecino && !listaVisitados.includes(parseInt(idVecino))) {
+          vecino.riesgoLocal += riesgo;
+          console.log(`Vecino actualizado ${vecino.id} con riesgo ${riesgo}`);
+          listaVisitados.push(parseInt(idVecino));
+  
+          vecino.listaVecinos.forEach((v) => {
+            if (!listaVisitados.includes(parseInt(v)) && !nuevosVecinos.includes(parseInt(v))) {
+              // console.log(`Id entra ${v} por ${vecino.id}`)
+              nuevosVecinos.push(parseInt(v));
+            }
+          });
+        }
+      });
+      console.log(`Lista visitados ${listaVisitados}`)
+      console.log(`Nuevos vecinos ${nuevosVecinos}`);
+      nodosVecinos = nuevosVecinos;
+  
+    } while (nodosVecinos.length > 0);
+
   })
-
-
 
 export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones}
