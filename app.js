@@ -17,8 +17,8 @@ btnPlay.innerHTML = '<i class="fas fa-play"></i>';
 btnPlay.classList.add('btnPlay');
 document.body.appendChild(btnPlay);
 
-import { listaEspacios, listaRiesgos, listaPersonas, listaAntecedentes, listaRecomendaciones, moverHabitantes, riesgosEspacio } from "./main"
-import { animate, setAnimate, setMaterial } from './grafo'
+import { listaEspacios, listaRiesgos, listaPersonas, listaAntecedentes, listaRecomendaciones, moverHabitantes, riesgosEspacio, cargarRecomendaciones } from "./main"
+import { animate, setAnimate, setMaterial} from './grafo'
 
 btnEspacios.addEventListener(('click'), () => {
   headTable.innerHTML = ''
@@ -251,16 +251,16 @@ const mostrarModalEspacio = (espacio)=>{
     <tbody>
     ${espacio.listaRecomendaciones.map((r) => {
       // Buscar la descripción del riesgo por su ID
-      const riesgo = listaRiesgos.find((riesgo) => riesgo.id === r[0].idRiesgo);
+      const riesgo = listaRiesgos.find((riesgo) => riesgo.id === r.idRiesgo);
       // Buscar la descripción del antecedente por su ID
-      const antecedente = listaAntecedentes.find((antecedente) => antecedente.id === r[0].idAntecedente);
+      const antecedente = listaAntecedentes.find((antecedente) => antecedente.id === r.idAntecedente);
       
       // Renderizar la fila de la tabla con las descripciones encontradas
       return `
         <tr>
-          <td>${r[0].descripcion}</td>
-          <td>${riesgo ? riesgo.descripcion : 'No disponible'}</td>
-          <td>${antecedente ? antecedente.descripcion : 'No disponible'}</td>
+          <td>${r.descripcion}</td>
+          <td>${riesgo ? riesgo.nombre : 'No disponible'}</td>
+          <td>${antecedente ? antecedente.nombre : 'No disponible'}</td>
         </tr>
       `;
     }).join('')}
@@ -290,6 +290,7 @@ btnPlay.addEventListener('click', () => {
   moverHabitantes(); // Llama a la función moverHabitantes para organizar los habitantes
   riesgosEspacio(); // Llama a la función riesgosEspacio para calcular el riesgo de cada espacio
   setMaterial(); // Llama a la función setMaterial para actualizar el color de los nodos
+  cargarRecomendaciones(); // Llama a la función cargarRecomendaciones para mostrar las recomendaciones en la tabla
   btnEspacios.click(); // Actualiza la tabla de espacios para reflejar los cambios
 });
 

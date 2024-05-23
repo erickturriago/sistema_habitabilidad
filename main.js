@@ -81,7 +81,6 @@ for(let i=0;i<cantidadAntecedentesRandom;i++){
       espacioRandom.listaPersonas.push(persona)
       espacioRandom.cantidadPersonas++;
     })
-    
     //Agregar riesgos random a cada espacio
     let cantidadRiesgosAgregar = 20;
     for (let i = 0; i < cantidadRiesgosAgregar; i++) {
@@ -91,36 +90,43 @@ for(let i=0;i<cantidadAntecedentesRandom;i++){
       do {
         espacioRandom = espaciosFiltrados[parseInt(Math.random() * espaciosFiltrados.length)];
       } while (espacioRandom.listaRiesgos.includes(riesgoRandom));
-
+      
       espacioRandom.listaRiesgos.push(riesgoRandom);
     }
-  
-  //Cargar recomendaciones al espacio por riesgo
-  let espaciosConRiesgos = listaEspacios.filter((e)=>e.listaRiesgos.length>0);
-  espaciosConRiesgos.forEach((e)=>{
-    let listaRecomendacionesRiesgo;
-    e.listaRiesgos.forEach((r)=>{
-      listaRecomendacionesRiesgo = listaRecomendaciones.filter((reco)=>reco.idRiesgo==r.id);
-    })
-
-    e.listaRecomendaciones = [...e.listaRecomendaciones,listaRecomendacionesRiesgo]
-  })
-
-
-  //Cargar recomendaciones al espacio por antecedente
-  let espaciosConPersonas = listaEspacios.filter((e)=>e.listaPersonas.length>0);
-  espaciosConPersonas.forEach((e)=>{
-    let recomendacionesPorAntecedente;
-    let personasConAntecedentes = e.listaPersonas.filter((p)=>p.listaAntecedentes.length>0);
-    personasConAntecedentes.forEach((persona)=>{
-      let recomendaciones
-      persona.listaAntecedentes.forEach((antecedente)=>{
-        recomendaciones = listaRecomendaciones.filter((r)=>r.idAntecedente==antecedente.id);
-        
+    
+  function cargarRecomendaciones(){
+    listaEspacios.forEach(espacio => { 
+      espacio.listaRecomendaciones = [];
+    }); 
+    //Cargar recomendaciones al espacio por riesgo
+    let espaciosConRiesgos = listaEspacios.filter((e)=>e.listaRiesgos.length>0);
+    espaciosConRiesgos.forEach((e)=>{
+      e.listaRiesgos.forEach((r)=>{
+        let recomendacion = listaRecomendaciones.find((reco)=>reco.idRiesgo==r.id);
+        if(!e.listaRecomendaciones.includes(recomendacion)){
+          e.listaRecomendaciones.push(recomendacion)
+        }
       })
-      e.listaRecomendaciones = [...e.listaRecomendaciones,recomendaciones];
+      console.log(`Riesgos ${e.listaRiesgos.length} ${e.listaRecomendaciones.length} `)
     })
-  })
+    
+    
+    //Cargar recomendaciones al espacio por antecedente
+    let espaciosConPersonas = listaEspacios.filter((e)=>e.listaPersonas.length>0);
+    espaciosConPersonas.forEach((e)=>{
+      let personasConAntecedentes = e.listaPersonas.filter((p)=>p.listaAntecedentes.length>0);
+      personasConAntecedentes.forEach((persona)=>{
+        let recomendaciones
+        persona.listaAntecedentes.forEach((antecedente)=>{
+          let recomendacion = listaRecomendaciones.find((r)=>r.idAntecedente==antecedente.id);
+          if (!e.listaRecomendaciones.includes(recomendacion)){
+            e.listaRecomendaciones.push(recomendacion);
+          }
+        })
+        console.log(`Recomendaciones ${persona.listaAntecedentes.length} ${e.listaRecomendaciones.length} `)
+      })
+    })
+  }
 
 // Método para mover a los habitantes y organizarlos por nivel de peligrosidad
 function moverHabitantes() {
@@ -255,5 +261,6 @@ function riesgosEspacio(){
   //   globales ${espacio.riesgoGlobal}`)
   // });
 }
+cargarRecomendaciones()
 riesgosEspacio()
-export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones, moverHabitantes, riesgosEspacio}
+export {listaEspacios,listaRiesgos,listaPersonas,listaAntecedentes,listaRecomendaciones, moverHabitantes, riesgosEspacio, cargarRecomendaciones}
