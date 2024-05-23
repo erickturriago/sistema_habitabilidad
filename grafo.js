@@ -108,7 +108,7 @@ function setMaterial(){
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-window.addEventListener('mousedown', onMouseDown);
+window.addEventListener('mouseup', onMouseDown);
 
 function onMouseDown(event) {
   // Calcular las coordenadas del ratón normalizadas (-1 a +1)
@@ -127,18 +127,8 @@ function onMouseDown(event) {
       if (selectedObject.geometry.type === 'SphereGeometry') {
         console.log(selectedObject)
         console.log(`${selectedObject.userData.espacio.id} was clicked!`);
-        
-        
-        
-        // camera.position.x = 0; // Ajuste horizontal
-        // camera.position.y = -15; // Ajuste vertical para ver todos los pisos
-        // camera.position.z = 0; // Distancia de la cámara al objeto
-        // controls.enable = false;
-        // controls=null;
-        // controls = new OrbitControls(camera, renderer.domElement);
-        // controls.enabled = false
-        // alert(`Espacio con id ${selectedObject.userData.espacio.id} fue clickeado`)
-        mostrarModalEspacio(selectedObject.userData.espacio)
+        mostrarModalEspacio(selectedObject.userData.espacio);
+
         break; // Romper el bucle si encontramos un objeto de interés
       }
     }
