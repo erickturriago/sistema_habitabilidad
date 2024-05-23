@@ -15,6 +15,7 @@ export default class Espacio{
         this.riesgoZonal=0;
         this.riesgoGlobal=0;
         this.riesgoTemp=0;
+        this.listaRecomendaciones=[]
     };
     getId() {
         return this.id;

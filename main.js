@@ -57,8 +57,10 @@ recomendacionesData.AntecedentesRecomendaciones.forEach((recomendacion)=>{
 })
 //Cargue de objetos entre listas
 
+
+
 //Agregar antecedentes random a personas
-let cantidadAntecedentesRandom = 200
+let cantidadAntecedentesRandom = 150
 for(let i=0;i<cantidadAntecedentesRandom;i++){
   let antecedenteRandom = listaAntecedentes[parseInt(Math.random()*listaAntecedentes.length)]
   let personaRandom;
@@ -92,6 +94,33 @@ for(let i=0;i<cantidadAntecedentesRandom;i++){
 
       espacioRandom.listaRiesgos.push(riesgoRandom);
     }
+  
+  //Cargar recomendaciones al espacio por riesgo
+  let espaciosConRiesgos = listaEspacios.filter((e)=>e.listaRiesgos.length>0);
+  espaciosConRiesgos.forEach((e)=>{
+    let listaRecomendacionesRiesgo;
+    e.listaRiesgos.forEach((r)=>{
+      listaRecomendacionesRiesgo = listaRecomendaciones.filter((reco)=>reco.idRiesgo==r.id);
+    })
+
+    e.listaRecomendaciones = [...e.listaRecomendaciones,listaRecomendacionesRiesgo]
+  })
+
+
+  //Cargar recomendaciones al espacio por antecedente
+  let espaciosConPersonas = listaEspacios.filter((e)=>e.listaPersonas.length>0);
+  espaciosConPersonas.forEach((e)=>{
+    let recomendacionesPorAntecedente;
+    let personasConAntecedentes = e.listaPersonas.filter((p)=>p.listaAntecedentes.length>0);
+    personasConAntecedentes.forEach((persona)=>{
+      let recomendaciones
+      persona.listaAntecedentes.forEach((antecedente)=>{
+        recomendaciones = listaRecomendaciones.filter((r)=>r.idAntecedente==antecedente.id);
+        
+      })
+      e.listaRecomendaciones = [...e.listaRecomendaciones,recomendaciones];
+    })
+  })
 
 // Método para mover a los habitantes y organizarlos por nivel de peligrosidad
 function moverHabitantes() {

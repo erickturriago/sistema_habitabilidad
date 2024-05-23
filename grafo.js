@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { listaEspacios } from './main';
+import {mostrarModalEspacio} from './app'
 
 // Inicializar Three.js
 const scene = new THREE.Scene();
@@ -21,12 +22,12 @@ material = new THREE.MeshBasicMaterial({ color: 0xC4B10E}); // Amarillo
   } else if (espacio.riesgoLocal >= 80) {
     material = new THREE.MeshBasicMaterial({ color: 0xC40E0E}); // Rojo
   }
-
+  
   const node = new THREE.Mesh(nodeGeometry,material)
   const x = espacio.coordenadas.x*4;
   const y = espacio.coordenadas.y*4;
   const z = espacio.coordenadas.z*5;
-
+  
   node.userData = {id:espacio.id,nombre:espacio.nombre}
 
   node.position.set(x, y, z);
@@ -51,13 +52,12 @@ listaEspacios.forEach((espacio) => {
 });
 
 // Posicionar la cámara
-camera.position.x = 0; // Ajuste horizontal
-camera.position.y = -15; // Ajuste vertical para ver todos los pisos
-camera.position.z = 0; // Distancia de la cámara al objeto
-camera.lookAt(new THREE.Vector3(1.44, 0, -0.015)); // Mirar al centro del edificio
+camera.position.x= 38.63658644561416
+camera.position.y= 22.732355219079057
+camera.position.z = 89.01457484836797
 
 // Controles de la cámara
-const controls = new OrbitControls(camera, renderer.domElement);
+let controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Permitir amortiguación para un movimiento más suave
 controls.minPolarAngle = 0; // Ángulo mínimo de rotación vertical (en radianes)
 controls.maxPolarAngle = Math.PI; // Ángulo máximo de rotación vertical (en radianes)
@@ -108,7 +108,7 @@ function setMaterial(){
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-document.addEventListener('mousedown', onMouseDown);
+window.addEventListener('mousedown', onMouseDown);
 
 function onMouseDown(event) {
   // Calcular las coordenadas del ratón normalizadas (-1 a +1)
@@ -125,15 +125,24 @@ function onMouseDown(event) {
     for (let i = 0; i < intersections.length; i++) {
       const selectedObject = intersections[i].object;
       if (selectedObject.geometry.type === 'SphereGeometry') {
-        const color = new THREE.Color(Math.random(), Math.random(), Math.random());
-        selectedObject.material.color.set(color);
         console.log(selectedObject)
-        console.log(`${selectedObject.userData.nombre} was clicked!`);
-        alert(`Espacio con id ${selectedObject.userData.id} fue clickeado`)
+        console.log(`${selectedObject.userData.espacio.id} was clicked!`);
+        
+        
+        
+        // camera.position.x = 0; // Ajuste horizontal
+        // camera.position.y = -15; // Ajuste vertical para ver todos los pisos
+        // camera.position.z = 0; // Distancia de la cámara al objeto
+        // controls.enable = false;
+        // controls=null;
+        // controls = new OrbitControls(camera, renderer.domElement);
+        // controls.enabled = false
+        // alert(`Espacio con id ${selectedObject.userData.espacio.id} fue clickeado`)
+        mostrarModalEspacio(selectedObject.userData.espacio)
         break; // Romper el bucle si encontramos un objeto de interés
       }
     }
   }
 }
 
-export {animate,setAnimate}
+export {animate,setAnimate,setMaterial}

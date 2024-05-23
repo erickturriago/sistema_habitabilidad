@@ -157,3 +157,68 @@ header .btnShowGrafo:hover{
 }
 
 
+.backgroundModal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalInfoEspacio{
+  background-color: white;
+  width: 900px;
+  height: 900px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 2rem 1rem 2rem 1rem; 
+  justify-content: space-around;
+  overflow-y: auto;
+  gap: 20px;
+}
+
+.backgroundModal i{
+  position: absolute;
+  font-size: 40px;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  cursor: pointer;
+  color: white;
+  filter: drop-shadow(inset 0 0 5px rgba(0, 0, 0, 0.5));
+  transform: all .2s ease;
+}
+
+.backgroundModal i:active{
+  transform: scale(0.98);
+}
+
+.modalOculto{
+  display: none;
+}
+
+
+.divPersona{
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.listaPersonas{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.modalInfoEspacio table{
+  text-align: center;
+  width: 80%;
+}
